@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles | Anthony William</title>
+  
+  <style>
+    /* Reset & Page Layout */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+
+    /* Two-Column Grid Container */
+    .page-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Column (Option 3) */
+    .sidebar {
+      background-color: #0f1117; /* Dark sidebar theme */
+      padding: 2rem 1.5rem;
+      border-right: 1px solid #2d313e;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-title {
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Search Bar Component inside Sidebar */
+    .search-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background-color: #1a1c23;
+      border: 1px solid #2d313e;
+      border-radius: 8px;
+      padding: 10px 12px;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-container:focus-within {
+      border-color: #60a5fa;
+    }
+
+    .search-icon {
+      color: #8c92a4;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    #searchInput {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+    }
+
+    #searchInput::placeholder {
+      color: #8c92a4;
+    }
+
+    /* Main Article Reading Area */
+    .main-content {
+      padding: 3rem 2.5rem;
+      max-width: 760px;
+      line-height: 1.7;
+    }
+
+    .article-card {
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #e2e2e2;
+    }
+
+    .article-card h2 {
+      font-size: 1.8rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .article-card .meta {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .no-results {
+      display: none;
+      color: #666;
+      font-style: italic;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    /* Responsive adjustment for small screens */
+    @media (max-width: 768px) {
+      .page-container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #2d313e;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3 class="sidebar-title">Anthony William</h3>
+      
+      <div class="search-container">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search articles..." onkeyup="filterArticles()">
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div id="articlesList">
+        
+        <article class="article-card">
+          <h2>Did Jesus Claim to Be God?</h2>
+          <p class="meta">By Anthony William · Published September 24, 2026</p>
+          <p>A historical and theological examination of whether Jesus claimed to be God, weighing Christian, Jewish, and historical-critical perspectives, from John's Gospel to the Council of Nicaea.</p>
+        </article>
+
+        <article class="article-card">
+          <h2>Understanding Monotheism</h2>
+          <p class="meta">By Anthony William · Published September 10, 2026</p>
+          <p>An exploration of ancient perspectives on divine identity, the Shema, and the development of monotheistic thought in early rabbinic literature.</p>
+        </article>
+
+        <p id="noResults" class="no-results">No matching articles found.</p>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Search Logic -->
+  <script>
+    function filterArticles() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase().trim();
+      const articles = document.querySelectorAll('.article-card');
+      const noResults = document.getElementById('noResults');
+      let visibleCount = 0;
+
+      articles.forEach(article => {
+        const text = article.textContent || article.innerText;
+        if (text.toLowerCase().includes(filter)) {
+          article.style.display = "";
+          visibleCount++;
+        } else {
+          article.style.display = "none";
+        }
+      });
+
+      if (visibleCount === 0 && filter !== "") {
+        noResults.style.display = "block";
+      } else {
+        noResults.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
