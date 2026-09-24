@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- STEP 1: Change the title below -->
+<title>YOUR ARTICLE TITLE — Apologetics Faith</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .post-hero{background:var(--bark-dark);color:#fff;padding:52px 24px 48px;text-align:center}
+  .post-hero .eyebrow{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--bark-light);margin-bottom:14px}
+  .post-hero h1{font-family:'Crimson Pro',serif;font-size:clamp(28px,5vw,46px);font-weight:600;line-height:1.2;max-width:780px;margin:0 auto 16px}
+  .post-meta{display:flex;gap:20px;justify-content:center;font-size:13px;color:rgba(255,255,255,.55);flex-wrap:wrap}
+  .post-body{max-width:720px;margin:0 auto;padding:56px 24px 80px}
+  .post-body h2{font-family:'Crimson Pro',serif;font-size:26px;font-weight:600;color:var(--bark-dark);margin:40px 0 14px}
+  .post-body p{font-size:16px;color:var(--text-mid);line-height:1.85;margin-bottom:20px}
+  .post-body blockquote{border-left:3px solid var(--bark);padding:16px 24px;margin:28px 0;background:var(--parchment);border-radius:0 8px 8px 0}
+  .post-body blockquote p{margin:0;font-family:'Crimson Pro',serif;font-size:18px;font-style:italic;color:var(--bark-dark)}
+  .post-body blockquote cite{display:block;font-size:13px;font-style:normal;color:var(--text-muted);margin-top:8px}
+  .post-divider{border:none;border-top:1px solid var(--border);margin:40px 0}
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--bark);font-size:14px;font-weight:600;text-decoration:none;margin-bottom:32px}
+  .back-link:hover{color:var(--bark-dark)}
+  .share-bar{background:var(--parchment);border-top:1px solid var(--border);padding:28px 24px;text-align:center}
+  .share-bar p{font-size:14px;color:var(--text-muted);margin-bottom:14px}
+  .share-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .share-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity .2s}
+  .share-btn:hover{opacity:.85}
+  .share-wa{background:var(--wa-green);color:#fff}
+  .share-em{background:var(--bark);color:#fff}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">"Always be prepared to give a reason for the hope that you have." — 1 Peter 3:15</div>
+    <div class="topbar-contacts">
+      <a class="contact-link" href="https://wa.me/255703338311" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+      <a class="contact-link" href="mailto:anthonywilliam6119@gmail.com" title="Email" aria-label="Email">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html">
+      <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <div class="logo-text">Apologetics Faith<span>Defending truth with grace</span></div>
+    </a>
+    <div class="search-wrap">
+      <input type="search" placeholder="Search articles…" aria-label="Search">
+      <button class="search-btn" aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link active" href="../articles.html">Articles</a>
+      <a class="nav-link" href="../topics.html">Topics</a>
+      <a class="nav-link" href="../about.html">About</a>
+      <a class="nav-donate" href="mailto:anthonywilliam6119@gmail.com">Support us</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- STEP 2: Change category, title, date, read time below -->
+<div class="post-hero">
+  <div class="eyebrow">CATEGORY (e.g. Resurrection / Bible / Suffering)</div>
+  <h1>Your article title goes here</h1>
+  <div class="post-meta">
+    <span>Date (e.g. October 1, 2026)</span>
+    <span>·</span>
+    <span>X min read</span>
+    <span>·</span>
+    <span>By Anthony William</span>
+  </div>
+</div>
+
+<!-- STEP 3: Write your article content below -->
+<div class="post-body">
+  <a class="back-link" href="../articles.html">← Back to all articles</a>
+
+  <!-- Opening paragraph -->
+  <p>Write your introduction here. Hook the reader with the question or topic you are addressing.</p>
+
+  <!-- Section heading -->
+  <h2>Your first section heading</h2>
+  <p>Write your first section content here.</p>
+
+  <!-- Bible quote example -->
+  <blockquote>
+    <p>"Your Bible verse or expert quote goes here."</p>
+    <cite>— Source (e.g. Romans 1:20 / Author Name)</cite>
+  </blockquote>
+
+  <!-- More sections -->
+  <h2>Your second section heading</h2>
+  <p>Write your second section content here.</p>
+
+  <h2>Your third section heading</h2>
+  <p>Write your third section content here.</p>
+
+  <hr class="post-divider">
+
+  <h2>Conclusion</h2>
+  <p>Write your conclusion here. End with a call to reflection or an invitation to reach out.</p>
+
+</div>
+
+<!-- STEP 4: Update the share links with your article filename -->
+<div class="share-bar">
+  <p>Did this article help you? Share it with someone asking the same questions.</p>
+  <div class="share-btns">
+    <a class="share-btn share-wa" href="https://wa.me/?text=Read%20this%20article%3A%20https://anthonywilliam8311.github.io/apologetics-faith/posts/YOUR-FILENAME.html" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      Share on WhatsApp
+    </a>
+    <a class="share-btn share-em" href="mailto:?subject=Article%20from%20Apologetics%20Faith&body=https://anthonywilliam8311.github.io/apologetics-faith/posts/YOUR-FILENAME.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Share by email
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Apologetics Faith</div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../topics.html">Topics</a>
+      <a href="../about.html">About</a>
+      <a href="https://wa.me/255703338311">WhatsApp</a>
+      <a href="mailto:anthonywilliam6119@gmail.com">Email</a>
+    </div>
+    <div class="footer-bottom">© 2026 Apologetics Faith — Defending the truth in love.</div>
+  </div>
+</footer>
+<script>
+function toggleMenu(){var nl=document.querySelector('.nav-links');nl.style.display=nl.style.display==='flex'?'none':'flex';if(nl.style.display==='flex')nl.style.cssText='display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:var(--warm-white);padding:16px 24px;border-bottom:1px solid var(--border);gap:4px;z-index:99'}
+</script>
+</body>
+</html>
