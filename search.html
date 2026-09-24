@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search — Apologetics Faith</title>
+<style>
+:root{--dark:#4e3b26;--bark:#7c6145;--sand:#f7f3ed;--white:#fffdf9;--border:#ddd5c8;--muted:#8c7a63}*{box-sizing:border-box}body{margin:0;background:var(--sand);color:#2d2416;font:16px/1.6 Arial,sans-serif}nav,footer{background:#1e1408;color:#fff;padding:22px;text-align:center}nav a,footer a{color:#c0a27d;margin:0 10px;text-decoration:none}.hero{background:var(--dark);color:#fff;text-align:center;padding:55px 24px}.hero h1{font:600 46px Georgia,serif;margin:8px}.search{display:flex;max-width:700px;margin:30px auto 0}.search input{flex:1;padding:15px 18px;border:0;border-radius:8px 0 0 8px;font-size:16px}.search button{padding:0 22px;border:0;background:#c09a70;color:#fff;font-weight:bold;border-radius:0 8px 8px 0;cursor:pointer}.results{max-width:780px;margin:35px auto;padding:0 24px}.result{display:block;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px;margin-bottom:16px;text-decoration:none;color:inherit}.result h2{color:var(--dark);font:600 25px Georgia,serif;margin:0 0 6px}.result small{color:var(--bark);font-weight:bold}.empty{text-align:center;color:var(--muted);padding:35px}@media(max-width:520px){.search{margin-left:10px;margin-right:10px}.search button{padding:0 14px}}
+</style>
+</head>
+<body>
+<nav><strong>Apologetics Faith</strong> · <a href="index.html">Home</a><a href="articles.html">Articles</a><a href="topics.html">Topics</a><a href="about.html">About</a></nav>
+<header class="hero"><div>FIND ANSWERS QUICKLY</div><h1>Search the website</h1><form class="search" id="searchForm"><input id="query" type="search" placeholder="Search articles, topics, or questions…" aria-label="Search website"><button type="submit">Search</button></form></header>
+<main class="results" id="results"></main>
+<footer>© 2026 Apologetics Faith</footer>
+<script>
+const pages=[
+ {title:'Did Jesus Claim to Be God?',type:'Article',text:'Jesus God divinity Trinity Father Son Christianity Judaism historical Gospel John forgiveness sins',url:'posts/did-jesus-claim-to-be-god.html'},
+ {title:'Resurrection',type:'Topic',text:'Jesus rise from the dead historical evidence resurrection',url:'topics.html'},
+ {title:'Science & Faith',type:'Topic',text:'evolution Big Bang fine tuning science God',url:'topics.html'},
+ {title:'Suffering & Evil',type:'Topic',text:'problem of evil suffering God goodness',url:'topics.html'},
+ {title:'Bible & Scripture',type:'Topic',text:'Bible reliable manuscripts authorship contradictions',url:'topics.html'},
+ {title:'Philosophy of God',type:'Topic',text:'does God exist cosmological moral ontological arguments',url:'topics.html'},
+ {title:'Islam & Christianity',type:'Topic',text:'Islam Christianity Jesus salvation beliefs',url:'topics.html'},
+ {title:'Atheism & Secularism',type:'Topic',text:'atheism secularism arguments belief God',url:'topics.html'},
+ {title:'About Apologetics Faith',type:'Page',text:'mission author ministry Christian apologetics contact',url:'about.html'}
+];
+const form=document.getElementById('searchForm'),input=document.getElementById('query'),results=document.getElementById('results');
+function render(term=''){const words=term.toLowerCase().trim().split(/\s+/).filter(Boolean);const matches=words.length?pages.filter(p=>words.some(w=>(p.title+' '+p.type+' '+p.text).toLowerCase().includes(w))):pages;results.innerHTML=matches.length?matches.map(p=>`<a class="result" href="${p.url}"><small>${p.type}</small><h2>${p.title}</h2><div>${p.text}</div></a>`).join(''):'<div class="empty">No matching articles or pages found. Try another search.</div>'}form.addEventListener('submit',e=>{e.preventDefault();render(input.value);history.replaceState(null,'','search.html'+(input.value?'?q='+encodeURIComponent(input.value):''))});input.addEventListener('input',()=>render(input.value));const initial=new URLSearchParams(location.search).get('q')||'';input.value=initial;render(initial);
+</script>
+</body>
+</html>
