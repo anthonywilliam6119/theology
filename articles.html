@@ -1,216 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Articles — Apologetics Faith</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 <style>
-  .filter-bar{background:var(--warm-white);border-bottom:1px solid var(--border);padding:16px 24px}
-  .filter-inner{max-width:1100px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .filter-label{font-size:13px;color:var(--text-muted);font-weight:500;margin-right:4px}
-  .filter-btn{background:var(--sand);border:1px solid var(--border);color:var(--text-mid);padding:6px 16px;border-radius:20px;font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;transition:all .15s}
-  .filter-btn:hover,.filter-btn.active{background:var(--bark);border-color:var(--bark);color:#fff}
-  .articles-section{background:var(--sand)}
-  #no-results{display:none;text-align:center;padding:48px;color:var(--text-muted);font-family:'Crimson Pro',serif;font-size:20px}
+:root{--dark:#4e3b26;--bark:#7c6145;--olive:#5c6b3a;--sand:#f7f3ed;--white:#fffdf9;--border:#ddd5c8;--muted:#8c7a63}*{box-sizing:border-box}body{margin:0;background:var(--sand);color:#2d2416;font:16px/1.6 Arial,sans-serif}a{color:inherit}.topbar{background:var(--dark);padding:10px 24px;text-align:right}.icon{display:inline-flex;width:34px;height:34px;margin-left:8px;align-items:center;justify-content:center;border:1px solid #fff6;border-radius:50%;color:#fff;text-decoration:none}.nav{position:sticky;top:0;z-index:10;background:var(--white);border-bottom:1px solid var(--border)}.nav-inner{max-width:1100px;height:68px;margin:auto;padding:0 24px;display:flex;align-items:center}.logo{text-decoration:none;font:bold 22px Georgia;color:var(--dark)}.logo small{display:block;font:10px Arial;color:var(--muted);letter-spacing:1px;text-transform:uppercase}.links{display:flex;gap:6px;margin-left:auto;align-items:center}.links a{padding:8px 13px;border-radius:6px;text-decoration:none;color:#5a4a35}.links a:hover,.links .active{background:#ede8df}.support{background:var(--bark);color:#fff!important}.menu{display:none;margin-left:auto;border:0;background:none;font-size:25px}.header{padding:55px 24px;text-align:center;color:#fff;background:var(--dark)}.header h1{font:600 48px Georgia;margin:0 0 8px}.header p{margin:0;color:#fffc}.toolbar{padding:18px 24px;background:var(--white);border-bottom:1px solid var(--border)}.toolbar form{max-width:700px;margin:auto;display:flex}.toolbar input{flex:1;padding:12px 16px;border:1px solid var(--border);border-radius:22px 0 0 22px;font-size:15px}.toolbar button{padding:0 20px;border:0;border-radius:0 22px 22px 0;background:var(--bark);color:#fff;font-weight:bold}.filters{text-align:center;padding:18px 24px}.filter{margin:4px;padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--white);cursor:pointer}.filter.active,.filter:hover{background:var(--bark);color:#fff}.grid{max-width:1100px;margin:auto;padding:35px 24px 70px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-decoration:none}.art-image{height:125px;background:#ede0cf;display:flex;align-items:center;justify-content:center;font-size:42px}.card-body{padding:20px}.category{font-size:12px;font-weight:bold;color:var(--olive);text-transform:uppercase}.card h2{font:600 23px/1.25 Georgia;color:var(--dark);margin:8px 0}.card p{font-size:14px;color:#5a4a35}.read{font-weight:bold;color:var(--olive)}#empty{display:none;grid-column:1/-1;text-align:center;padding:35px;color:var(--muted)}footer{padding:35px;text-align:center;background:#1e1408;color:#fff9}footer a{margin:0 8px;color:#d4b896}@media(max-width:700px){.links{display:none;position:absolute;top:68px;left:0;right:0;padding:14px 24px;background:var(--white);flex-direction:column;align-items:stretch}.links.open{display:flex}.menu{display:block}.grid{grid-template-columns:1fr}.header h1{font-size:38px}}
 </style>
 </head>
 <body>
-
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-left">"Always be prepared to give a reason for the hope that you have." — 1 Peter 3:15</div>
-    <div class="topbar-contacts">
-      <a class="contact-link" href="https://wa.me/255703338311" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-      </a>
-      <a class="contact-link" href="mailto:anthonywilliam6119@gmail.com" title="Email" aria-label="Email">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- NAVBAR -->
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="index.html">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      </div>
-      <div class="logo-text">Apologetics Faith<span>Defending truth with grace</span></div>
-    </a>
-    <div class="search-wrap">
-      <input type="search" id="navSearch" placeholder="Search articles…" aria-label="Search articles" oninput="filterArticles()">
-      <button class="search-btn" aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-    </div>
-    <div class="nav-links">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link active" href="articles.html">Articles</a>
-      <a class="nav-link" href="topics.html">Topics</a>
-      <a class="nav-link" href="about.html">About</a>
-      <a class="nav-donate" href="mailto:anthonywilliam6119@gmail.com">Support us</a>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
-</nav>
-
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <div class="eyebrow">All articles</div>
-  <h1>Explore the library</h1>
-  <p>Every article is written to answer real questions with honesty, evidence, and respect.</p>
-</div>
-
-<!-- FILTER BAR -->
-<div class="filter-bar">
-  <div class="filter-inner">
-    <span class="filter-label">Filter by:</span>
-    <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
-    <button class="filter-btn" onclick="setFilter('resurrection', this)">Resurrection</button>
-    <button class="filter-btn" onclick="setFilter('science', this)">Science & Faith</button>
-    <button class="filter-btn" onclick="setFilter('suffering', this)">Suffering</button>
-    <button class="filter-btn" onclick="setFilter('bible', this)">Bible</button>
-    <button class="filter-btn" onclick="setFilter('islam', this)">Islam</button>
-    <button class="filter-btn" onclick="setFilter('atheism', this)">Atheism</button>
-    <button class="filter-btn" onclick="setFilter('philosophy', this)">Philosophy</button>
-  </div>
-</div>
-
-<!-- ARTICLES GRID -->
-<section class="articles-section">
-  <div class="section-inner">
-    <div class="articles-grid" id="articlesGrid">
-
-      <a class="article-card" href="posts/did-jesus-rise.html" data-category="resurrection" data-title="Did Jesus really rise from the dead historical evidence examined">
-        <div class="article-card-img" style="background:#EDE0CF">
-          <span class="article-cat-badge">Resurrection</span>
-          <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 7v5l3 3"/></svg></div>
-        </div>
-        <div class="article-body">
-          <div class="article-meta"><span>Sep 18, 2026</span><span>8 min read</span></div>
-          <h3>Did Jesus really rise from the dead? Historical evidence examined</h3>
-          <p>We explore the four established historical facts that even skeptical scholars accept, and what they demand of us.</p>
-          <span class="read-more">Read article →</span>
-        </div>
-      </a>
-
-      <a class="article-card" href="posts/evolution-and-faith.html" data-category="science" data-title="Can a Christian believe in evolution a careful biblical response">
-        <div class="article-card-img" style="background:#DDE5D0">
-          <span class="article-cat-badge" style="background:var(--olive)">Science & Faith</span>
-          <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
-        </div>
-        <div class="article-body">
-          <div class="article-meta"><span>Sep 12, 2026</span><span>12 min read</span></div>
-          <h3>Can a Christian believe in evolution? A careful, biblical response</h3>
-          <p>Many assume science and faith are at war. We unpack what Genesis actually claims and where the debate truly lies.</p>
-          <span class="read-more">Read article →</span>
-        </div>
-      </a>
-
-      <a class="article-card" href="posts/problem-of-evil.html" data-category="suffering" data-title="If God is good why is there so much suffering in the world">
-        <div class="article-card-img" style="background:#E5D8CC">
-          <span class="article-cat-badge" style="background:#8C4A2F">Suffering</span>
-          <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        </div>
-        <div class="article-body">
-          <div class="article-meta"><span>Sep 5, 2026</span><span>10 min read</span></div>
-          <h3>If God is good, why is there so much suffering in the world?</h3>
-          <p>The problem of evil is the most emotionally powerful objection to faith. Here we engage it honestly and carefully.</p>
-          <span class="read-more">Read article →</span>
-        </div>
-      </a>
-
-      <a class="article-card" href="posts/nt-reliable.html" data-category="bible" data-title="Is the New Testament reliable what historians actually say">
-        <div class="article-card-img" style="background:#D8E0E8">
-          <span class="article-cat-badge" style="background:#2C5F8A">Bible</span>
-          <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-        </div>
-        <div class="article-body">
-          <div class="article-meta"><span>Aug 28, 2026</span><span>15 min read</span></div>
-          <h3>Is the New Testament reliable? What historians actually say</h3>
-          <p>The manuscript evidence, early dating, and what first-century historians tell us — no faith assumption required.</p>
-          <span class="read-more">Read article →</span>
-        </div>
-      </a>
-
-      <a class="article-card" href="posts/is-god-real.html" data-category="philosophy" data-title="Does God exist the five strongest arguments examined">
-        <div class="article-card-img" style="background:#E8E0ED">
-          <span class="article-cat-badge" style="background:#5C3A7C">Philosophy</span>
-          <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
-        </div>
-        <div class="article-body">
-          <div class="article-meta"><span>Aug 20, 2026</span><span>11 min read</span></div>
-          <h3>Does God exist? The five strongest arguments examined</h3>
-          <p>From the cosmological argument to the fine-tuning of the universe — we examine each case fairly and thoroughly.</p>
-          <span class="read-more">Read article →</span>
-        </div>
-      </a>
-
-      <a class="article-card" href="posts/islam-and-christianity.html" data-category="islam" data-title="Islam and Christianity what are the key differences">
-        <div class="article-card-img" style="background:#E8EDDE">
-          <span class="article-cat-badge" style="background:#4A7C3A">Islam</span>
-          <div class="article-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        </div>
-        <div class="article-body">
-          <div class="article-meta"><span>Aug 10, 2026</span><span>13 min read</span></div>
-          <h3>Islam and Christianity: what are the key differences?</h3>
-          <p>A respectful, well-researched comparison of the two faiths — their claims about Jesus, Scripture, and salvation.</p>
-          <span class="read-more">Read article →</span>
-        </div>
-      </a>
-
-    </div>
-    <div id="no-results">No articles found. Try a different search or filter.</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">Apologetics Faith</div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="articles.html">Articles</a>
-      <a href="topics.html">Topics</a>
-      <a href="about.html">About</a>
-      <a href="https://wa.me/255703338311">WhatsApp</a>
-      <a href="mailto:anthonywilliam6119@gmail.com">Email</a>
-    </div>
-    <div class="footer-bottom">© 2026 Apologetics Faith — Defending the truth in love.</div>
-  </div>
-</footer>
-
+<header class="topbar"><a class="icon" href="https://wa.me/255703338311" target="_blank" rel="noopener" aria-label="WhatsApp">☎</a><a class="icon" href="mailto:anthonywilliam6119@gmail.com" aria-label="Email">✉</a></header>
+<nav class="nav"><div class="nav-inner"><a class="logo" href="./index.html">Apologetics Faith<small>Defending truth with grace</small></a><div class="links" id="links"><a href="./index.html">Home</a><a class="active" href="./articles.html">Articles</a><a href="./topics.html">Topics</a><a href="./about.html">About</a><a class="support" href="mailto:anthonywilliam6119@gmail.com">Support us</a></div><button class="menu" type="button" aria-label="Open menu" onclick="document.getElementById('links').classList.toggle('open')">☰</button></div></nav>
+<header class="header"><h1>Explore the library</h1><p>Search and browse every article.</p></header>
+<div class="toolbar"><form id="searchForm"><input id="search" name="q" type="search" placeholder="Search articles…" aria-label="Search articles"><button type="submit">Search</button></form></div>
+<div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="resurrection">Resurrection</button><button class="filter" data-filter="science">Science &amp; Faith</button><button class="filter" data-filter="suffering">Suffering</button><button class="filter" data-filter="bible">Bible</button><button class="filter" data-filter="philosophy">Philosophy</button><button class="filter" data-filter="islam">Islam</button></div>
+<main class="grid" id="grid"><a class="card" data-category="resurrection" data-search="jesus resurrection dead historical evidence" href="./did-jesus-rise.html"><div class="art-image">◯</div><div class="card-body"><span class="category">Resurrection</span><h2>Did Jesus really rise from the dead?</h2><p>Historical evidence examined carefully and honestly.</p><span class="read">Read article →</span></div></a><a class="card" data-category="science" data-search="christian evolution science faith" href="./posts/evolution-and-faith.html"><div class="art-image">✦</div><div class="card-body"><span class="category">Science &amp; Faith</span><h2>Can a Christian believe in evolution?</h2><p>A careful biblical response to science and faith.</p><span class="read">Read article →</span></div></a><a class="card" data-category="suffering" data-search="god good suffering evil" href="./posts/problem-of-evil.html"><div class="art-image">♡</div><div class="card-body"><span class="category">Suffering</span><h2>If God is good, why is there suffering?</h2><p>An honest look at the problem of evil.</p><span class="read">Read article →</span></div></a><a class="card" data-category="bible" data-search="new testament reliable historians bible scripture" href="./posts/nt-reliable.html"><div class="art-image">▤</div><div class="card-body"><span class="category">Bible</span><h2>Is the New Testament reliable?</h2><p>What historians say about manuscripts and early sources.</p><span class="read">Read article →</span></div></a><a class="card" data-category="philosophy" data-search="god exist arguments philosophy" href="./posts/is-god-real.html"><div class="art-image">?</div><div class="card-body"><span class="category">Philosophy</span><h2>Does God exist?</h2><p>The strongest arguments examined fairly.</p><span class="read">Read article →</span></div></a><a class="card" data-category="islam" data-search="islam christianity jesus salvation" href="./posts/islam-and-christianity.html"><div class="art-image">✧</div><div class="card-body"><span class="category">Islam</span><h2>Islam and Christianity</h2><p>A respectful comparison of core beliefs.</p><span class="read">Read article →</span></div></a><div id="empty">No articles match your search.</div></main>
+<footer><strong>Apologetics Faith</strong><p><a href="./index.html">Home</a><a href="./articles.html">Articles</a><a href="./topics.html">Topics</a><a href="./about.html">About</a></p>© 2026 Apologetics Faith</footer>
 <script>
-  var currentFilter='all';
-  function setFilter(cat,btn){
-    currentFilter=cat;
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    filterArticles();
-  }
-  function filterArticles(){
-    var q=(document.getElementById('navSearch').value||'').toLowerCase();
-    var cards=document.querySelectorAll('.article-card');
-    var visible=0;
-    cards.forEach(function(c){
-      var matchCat=currentFilter==='all'||c.dataset.category===currentFilter;
-      var matchQ=!q||c.dataset.title.toLowerCase().includes(q);
-      if(matchCat&&matchQ){c.style.display='flex';visible++;}
-      else{c.style.display='none';}
-    });
-    document.getElementById('no-results').style.display=visible===0?'block':'none';
-  }
-  function toggleMenu(){
-    var nl=document.querySelector('.nav-links');
-    nl.style.display=nl.style.display==='flex'?'none':'flex';
-    if(nl.style.display==='flex') nl.style.cssText='display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:var(--warm-white);padding:16px 24px;border-bottom:1px solid var(--border);gap:4px;z-index:99';
-  }
+(function(){var input=document.getElementById('search'),form=document.getElementById('searchForm'),cards=[].slice.call(document.querySelectorAll('.card')),empty=document.getElementById('empty'),active='all';function apply(){var q=input.value.trim().toLowerCase(),shown=0;cards.forEach(function(card){var ok=(active==='all'||card.dataset.category===active)&&(!q||card.dataset.search.indexOf(q)>-1);card.style.display=ok?'block':'none';if(ok)shown++});empty.style.display=shown?'none':'block'}form.addEventListener('submit',function(e){e.preventDefault();var q=input.value.trim();history.replaceState(null,'',q?'./articles.html?q='+encodeURIComponent(q):'./articles.html');apply()});document.querySelectorAll('.filter').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.filter').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');active=btn.dataset.filter;apply()})});input.addEventListener('input',apply);var initial=new URLSearchParams(location.search).get('q');if(initial){input.value=initial}apply()})();
 </script>
-</body>
-</html>
+</body></html>
