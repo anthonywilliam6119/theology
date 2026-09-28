@@ -5,7 +5,7 @@ var SITE = {
 };
 
 var POSTS = [
-    {id:1, cat:"catholicism", date:"sep 2026", title:"mary mother of god", ex:"exploring the biblical and historical foundation of the title theotokos.", link:, "articles/mary-as-the-mother-of-god.html"},
+    {id:1, cat:"catholicism", date:"sep 2026", title:"mary mother of god", ex:"exploring the biblical and historical foundation of the title theotokos.", link:, "articles/mary-mother-of-god.html"},
     {id:2, cat:"Apologetics", date:"Sep 2026", title:"Why Reason and Faith Belong Together", ex:"Faith is not the enemy of thinking. How Scripture invites us to reason.", link:"articles/why-reason-faith.html"},
     {id:3, cat:"Theology", date:"Sep 2026", title:"Who Is Jesus? Reading the Gospels Carefully", ex:"The person and identity of Christ through the Gospel accounts.", link:"articles/who-is-jesus.html"},
     {id:4, cat:"Scripture", date:"Aug 2026", title:"How to Study the Bible for Yourself", ex:"A simple method: observe, interpret, apply.", link:"articles/how-to-study-bible.html"},
