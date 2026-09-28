@@ -3,389 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logos & Truth | Theological Studies</title>
+    <title>Theology and Apologetics</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #F9F7F1; /* Warm parchment */
-            --text-color: #2D2D2D;
-            --heading-color: #1A2A3A; /* Deep navy */
-            --accent-color: #B78B46; /* Academic gold */
-            --card-bg: #FFFFFF;
-            --border-color: #E5E0D8;
-            --font-heading: 'Playfair Display', Georgia, serif;
-            --font-body: 'Source Sans 3', system-ui, sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-            font-size: 18px;
-        }
-
-        /* --- Navigation --- */
-        header {
-            background: rgba(249, 247, 241, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--heading-color);
-            text-decoration: none;
-            letter-spacing: 0.5px;
-        }
-
-        .logo span { color: var(--accent-color); }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 400;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover { color: var(--accent-color); }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--heading-color);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 8rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-family: var(--font-heading);
-            font-size: 4rem;
-            color: var(--heading-color);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero .subtitle {
-            font-size: 1.25rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            font-style: italic;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2.5rem;
-            background-color: var(--heading-color);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            border-radius: 2px;
-            transition: background 0.3s;
-        }
-
-        .btn:hover { background-color: var(--accent-color); }
-
-        /* --- Sections --- */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--heading-color);
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- Topics Grid --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        .card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            color: var(--heading-color);
-            margin-bottom: 1rem;
-        }
-
-        /* --- Articles / Blog --- */
-        .article-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .article-item {
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2.5rem;
-        }
-
-        .article-meta {
-            font-size: 0.85rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .article-item h3 {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            color: var(--heading-color);
-            margin-bottom: 0.75rem;
-        }
-
-        .article-item p {
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            color: var(--heading-color);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 2px;
-            transition: color 0.3s;
-        }
-
-        .read-more:hover { color: var(--accent-color); }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--heading-color);
-            color: #ccc;
-            text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 5rem;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        /* --- Mobile Responsive --- */
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg-color);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                border-bottom: 1px solid var(--border-color);
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-            }
-
-            .nav-links.active { display: flex; }
-
-            .hero { padding: 5rem 1.5rem; }
-            .hero h1 { font-size: 2.8rem; }
-            .section-title { font-size: 2rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Navigation -->
     <header>
-        <nav>
-            <a href="#" class="logo">Logos <span>&</span> Truth</a>
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#topics">Topics</a></li>
-                <li><a href="#articles">Articles</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="bar">
+            <a href="#/" class="brand">
+                Theology & Apologetics
+                <small>Anthony William</small>
+            </a>
+            <nav id="nav">
+                <a href="#/" data-r="">Home</a>
+                <a href="#/articles" data-r="articles">Articles</a>
+                <a href="#/qa" data-r="qa">Q&A</a>
+                <a href="#/resources" data-r="resources">Resources</a>
+                <a href="#/about" data-r="about">About</a>
+            </nav>
+            <button class="ic" id="sb" aria-label="Search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.3-4.3"/>
+                </svg>
+            </button>
+        </div>
+        <div id="s">
+            <input type="text" id="q" placeholder="Search articles, topics, keywords..." autocomplete="off">
+        </div>
+        <div class="quote">
+            "Who hath ascended up into heaven, or descended? who hath gathered the wind in his fists?"
+            <b>Proverbs 30:4</b>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>Faith, Reason, and Revelation</h1>
-        <p class="subtitle">"Theology is but the grammar of the language of faith." — Exploring the depths of historical orthodoxy, biblical exegesis, and the life of the mind.</p>
-        <a href="#topics" class="btn">Explore Studies</a>
-    </section>
+    <main id="app"></main>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About the Ministry</h2>
-        <p class="section-subtitle">Dedicated to the rigorous study of Scripture and the rich tradition of the Church, bridging the ancient world with contemporary thought.</p>
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p>Welcome to <strong>Logos & Truth</strong>. This platform serves as a digital repository for theological research, sermon archives, and academic reflections. Whether you are a seminary student, a pastor, or a layperson seeking to deepen your understanding of the divine, you will find resources here designed to challenge the mind and warm the heart.</p>
-        </div>
-    </section>
-
-    <!-- Topics Section -->
-    <section id="topics" style="background: #fff; max-width: 100%; padding-left: 0; padding-right: 0;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <h2 class="section-title">Areas of Study</h2>
-            <p class="section-subtitle">Navigating the vast landscape of theological inquiry through four primary disciplines.</p>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon">📖</div>
-                    <h3>Biblical Exegesis</h3>
-                    <p>Careful, contextual interpretation of the Old and New Testaments in their original Hebrew, Aramaic, and Greek texts.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⚖️</div>
-                    <h3>Systematic Theology</h3>
-                    <p>Organizing the doctrines of the faith into a coherent, unified system, exploring the nature of God, humanity, and salvation.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🏛️</div>
-                    <h3>Historical Theology</h3>
-                    <p>Tracing the development of Christian thought from the Early Church Fathers through the Reformation to the modern era.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🕊️</div>
-                    <h3>Practical Theology</h3>
-                    <p>Applying theological truths to the life of the Church, pastoral care, worship, and contemporary cultural engagement.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles Section -->
-    <section id="articles">
-        <h2 class="section-title">Recent Reflections</h2>
-        <p class="section-subtitle">Essays, sermons, and academic papers on current and timeless theological topics.</p>
-        <div class="article-list">
-            <article class="article-item">
-                <div class="article-meta">September 2026 &bull; Systematic Theology</div>
-                <h3>The Immutability of God in a Changing World</h3>
-                <p>Exploring the classical doctrine of divine immutability and how it provides an anchor for the soul amidst the shifting cultural tides of the 21st century...</p>
-               <a href="immutability-of-god.html" class="read-more">Continue Reading →</a>
-            </article>
-            <article class="article-item">
-                <div class="article-meta">August 2026 &bull; Biblical Exegesis</div>
-                <h3>Logos in the Prologue: John 1 and the Hellenistic Context</h3>
-                <p>An exegetical study of how the Apostle John utilized the Greek concept of the 'Logos' to communicate the supremacy of Christ to a first-century audience...</p>
-                <a href="#" class="read-more">Continue Reading →</a>
-            </article>
-            <article class="article-item">
-                <div class="article-meta">July 2026 &bull; Historical Theology</div>
-                <h3>Lessons from the Desert: The Relevance of the Desert Fathers</h3>
-                <p>What can modern believers learn from the ascetic practices and profound spiritual insights of the early monastics in the Egyptian desert?</p>
-                <a href="#" class="read-more">Continue Reading →</a>
-            </article>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <p><strong>Logos & Truth</strong></p>
-        <p>For inquiries, speaking engagements, or research collaborations: <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
-        <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #888;">&copy; 2026 Logos & Truth. Hosted on GitHub Pages. Soli Deo Gloria.</p>
+    <footer>
+        <div class="contact" id="fc"></div>
+        <p>© <span id="yr"></span> Theology and Apologetics · Anthony William</p>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
