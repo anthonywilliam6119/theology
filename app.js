@@ -5,12 +5,13 @@ var SITE = {
 };
 
 var POSTS = [
-    {id:1, cat:"Apologetics", date:"Sep 2026", title:"Why Reason and Faith Belong Together", ex:"Faith is not the enemy of thinking. How Scripture invites us to reason.", link:"articles/why-reason-faith.html"},
-    {id:2, cat:"Theology", date:"Sep 2026", title:"Who Is Jesus? Reading the Gospels Carefully", ex:"The person and identity of Christ through the Gospel accounts.", link:"articles/who-is-jesus.html"},
-    {id:3, cat:"Scripture", date:"Aug 2026", title:"How to Study the Bible for Yourself", ex:"A simple method: observe, interpret, apply.", link:"articles/how-to-study-bible.html"},
-    {id:4, cat:"Apologetics", date:"Aug 2026", title:"Answering Objections with Gentleness", ex:"Giving a reasoned answer with respect for the one who asks.", link:"articles/answering-objections.html"},
-    {id:5, cat:"Islamic Dilemma", date:"Jul 2026", title:"The Islamic Dilemma: A Logical Challenge", ex:"Examining the internal consistency of Islamic claims about revelation.", link:"articles/islamic-dilemma.html"},
-    {id:6, cat:"Catholicism", date:"Jun 2026", title:"Sola Scriptura vs. Catholic Tradition", ex:"Understanding the Protestant-Catholic divide on authority.", link:"articles/sola-scriptura.html"}
+    {id:1, cat:"catholicism", date:"sep 2026", title:"mary as the mother of god", ex:"exploring the biblical and historical foundation of the title theotokos.", link:, "articles/mary-as-the-mother-of-god.html"},
+    {id:2, cat:"Apologetics", date:"Sep 2026", title:"Why Reason and Faith Belong Together", ex:"Faith is not the enemy of thinking. How Scripture invites us to reason.", link:"articles/why-reason-faith.html"},
+    {id:3, cat:"Theology", date:"Sep 2026", title:"Who Is Jesus? Reading the Gospels Carefully", ex:"The person and identity of Christ through the Gospel accounts.", link:"articles/who-is-jesus.html"},
+    {id:4, cat:"Scripture", date:"Aug 2026", title:"How to Study the Bible for Yourself", ex:"A simple method: observe, interpret, apply.", link:"articles/how-to-study-bible.html"},
+    {id:5, cat:"Apologetics", date:"Aug 2026", title:"Answering Objections with Gentleness", ex:"Giving a reasoned answer with respect for the one who asks.", link:"articles/answering-objections.html"},
+    {id:6, cat:"Islamic Dilemma", date:"Jul 2026", title:"The Islamic Dilemma: A Logical Challenge", ex:"Examining the internal consistency of Islamic claims about revelation.", link:"articles/islamic-dilemma.html"},
+    {id:7, cat:"Catholicism", date:"Jun 2026", title:"Sola Scriptura vs. Catholic Tradition", ex:"Understanding the Protestant-Catholic divide on authority.", link:"articles/sola-scriptura.html"}
 ];
 
 var QA = [
