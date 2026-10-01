@@ -5,6 +5,7 @@ var SITE = {
 };
 
 var POSTS = [
+    {id:8, cat: "Theology", date: "Sep 2026", title: "Did Jesus Claim to Be God?", ex: "Examining the biblical evidence, Jewish objections, and early Church Fathers on whether Jesus claimed divine identity.", link: "articles/did-jesus-claim-to-be-god.html"},
     {id:7, cat: "Theology", date: "Sep 2026", title: "Mary Mother of God", ex: "Exploring the biblical and historical foundations of the title Theotokos.", link: "articles/mary-mother-of-god.html"},
     {id:1, cat:"Apologetics", date:"Sep 2026", title:"Why Reason and Faith Belong Together", ex:"Faith is not the enemy of thinking. How Scripture invites us to reason.", link:"articles/why-reason-faith.html"},
     {id:2, cat:"Theology", date:"Sep 2026", title:"Who Is Jesus? Reading the Gospels Carefully", ex:"The person and identity of Christ through the Gospel accounts.", link:"articles/who-is-jesus.html"},
