@@ -3,410 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Quran: Sunni Islam’s Multiple Gods? | samshmn</title>
+    <title>The Quran: Sunni Islam’s Multiple Gods? | Theology and Apologetics</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink: #2c3e50;
+            --card: #f8f9fa;
+            --line: #e0e0e0;
+            --muted: #7f8c8d;
+            --accent: #3498db;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.8;
-            color: #2c3e50;
+            font-family: 'Inter', 'Spectral', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--ink);
             background: #fafafa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
         }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-            line-height: 1.3;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin: 2.5rem 0 1rem;
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            margin: 1.8rem 0 1rem;
-            color: #34495e;
-            font-style: italic;
-        }
-        
-        .meta {
-            color: #7f8c8d;
-            font-size: 0.95rem;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        p {
-            margin-bottom: 1.3rem;
-            text-align: justify;
-        }
-        
-        blockquote {
-            border-left: 4px solid #3498db;
-            background: #ecf0f1;
-            padding: 1.2rem 1.5rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        blockquote cite {
-            display: block;
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #555;
-            font-style: normal;
-            font-weight: bold;
-        }
-        
-        em {
-            color: #c0392b;
-            font-weight: 600;
-        }
-        
-        ul, ol {
-            margin: 1rem 0 1.5rem 2rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Interactive Comparison Component */
-        .comparison-container {
-            margin: 3rem 0;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-        
-        .comparison-controls {
+        .bar {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: #fff;
+            border-bottom: 1px solid var(--line);
             flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .filter-btn {
-            padding: 0.6rem 1.3rem;
-            border: 2px solid #3498db;
-            background: white;
-            color: #3498db;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-        
-        .filter-btn:hover {
-            background: #3498db;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .filter-btn.active {
-            background: #3498db;
-            color: white;
-        }
-        
-        .comparison-grid {
-            display: grid;
-            gap: 1.2rem;
-        }
-        
-        .comparison-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 1.5rem;
-            border-left: 5px solid #3498db;
-            transition: transform 0.2s;
-        }
-        
-        .comparison-card:hover {
-            transform: translateX(5px);
-        }
-        
-        .comparison-card h4 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.15rem;
-        }
-        
-        .views {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 1rem;
-            margin-top: 0.8rem;
         }
-        
-        @media (max-width: 700px) {
-            .views {
-                grid-template-columns: 1fr;
-            }
+        .brand {
+            font-family: 'Spectral', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--ink);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
         }
-        
-        .view {
-            padding: 1rem;
-            border-radius: 8px;
+        .brand small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--muted);
+            font-family: 'Inter', sans-serif;
+        }
+        nav {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--ink);
             font-size: 0.95rem;
-            line-height: 1.6;
+            font-weight: 500;
         }
+        nav a:hover { color: var(--accent); }
         
-        .view.nafsi {
-            background: #fff3e0;
-            border-left: 4px solid #f39c12;
+        .w {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem;
         }
-        
-        .view.lafzi {
-            background: #e8f5e9;
-            border-left: 4px solid #27ae60;
+        .back {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
-        
-        .view strong {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-size: 0.85rem;
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2.5rem;
+        }
+        .article {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
-        .view.nafsi strong {
-            color: #e67e22;
+        h1.serif {
+            font-family: 'Spectral', serif;
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
         }
-        
-        .view.lafzi strong {
-            color: #27ae60;
+        .lead {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line);
         }
-        
-        /* Sources Section */
-        .sources {
-            background: #ecf0f1;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 3rem;
+        h2.serif {
+            font-family: 'Spectral', serif;
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--ink);
         }
-        
-        .sources h3 {
-            margin-bottom: 1.2rem;
-            color: #2c3e50;
-            font-style: normal;
+        h3.serif {
+            font-family: 'Spectral', serif;
+            font-size: 1.2rem;
+            color: #34495e;
         }
-        
-        .sources ul {
-            padding-left: 1.5rem;
+        p { margin-bottom: 1.2rem; }
+        blockquote {
+            border-left: 4px solid var(--accent);
+            background: var(--card);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            color: #444;
         }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
         
-        .sources li {
-            margin-bottom: 0.8rem;
+        aside { display: flex; flex-direction: column; gap: 1.5rem; }
+        .card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .card h4 {
+            font-family: 'Spectral', serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .card .t {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--ink);
+            border-bottom: 1px solid var(--line);
             font-size: 0.95rem;
         }
+        .card .t:last-child { border-bottom: none; }
+        .card .t:hover { color: var(--accent); }
         
-        .sources a {
-            color: #3498db;
-            text-decoration: none;
+        .contact {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .contact a {
+            color: var(--muted);
             transition: color 0.2s;
         }
+        .contact a:hover { color: var(--accent); }
         
-        .sources a:hover {
-            text-decoration: underline;
-            color: #2980b9;
-        }
-        
-        /* Author Tags */
-        .author-section {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid #e0e0e0;
+        footer {
             text-align: center;
-            color: #7f8c8d;
+            padding: 2rem;
+            color: var(--muted);
             font-size: 0.9rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
         }
-        
-        .tags {
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-        
-        .tag {
-            background: #3498db;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
+
+        /* Mobile Responsiveness */
+        @media (max-width: 850px) {
+            .cols {
+                grid-template-columns: 1fr;
+            }
+            .bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 0.75rem;
+            }
+            h1.serif { font-size: 1.8rem; }
+            .article { padding: 1.5rem; }
+            table {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="bar">
+            <a href="../index.html" class="brand">
+                Theology & Apologetics
+                <small>Anthony William</small>
+            </a>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../index.html#/articles">Articles</a>
+                <a href="../index.html#/qa">Q&A</a>
+                <a href="../index.html#/resources">Resources</a>
+                <a href="../index.html#/about">About</a>
+            </nav>
+        </div>
+    </header>
 
-<h1>The Quran: Sunni Islam’s Multiple Gods?</h1>
-<p class="meta">By samshmn · Published October 2026</p>
-
-<h2>Introduction</h2>
-<p>In this post I will be quoting several posts from IslamQA.org, a prominent, reputable Sunni website, in respect to the Quran being Allah’s speech.</p>
-<p>These answers prove that Sunni Islam has turned the Quran into a Christ-like figure by claiming it to be uncreated and a divine emanation from Allah.</p>
-<p>This in turn makes the Quran another divinity besides Allah, in fact 114 divine beings united together as one since each surah is supposed to be uncreated as well. All emphasis will be mine.</p>
-
-<h2>Is the Quran created or uncreated speech of Allah?</h2>
-<p>A common question asked by those confused by the theological terminology is whether the Quran is created or uncreated.</p>
-<p>The answer from prominent Sunni institutions is unequivocal.</p>
-
-<h3>Darul Uloom Deoband</h3>
-<p>Fatwa 915/818=B/1429 states:</p>
-<blockquote>
-    The unanimous faith of Ahl-e-Sunnah wal-Jamah is that the holy Quran is eternal and uncreated.
-    <cite>— Sharh al-Fiqh al-Akbar</cite>
-</blockquote>
-<p>However, calling the holy Quran eternal and uncreated means that the Word of Allah Almighty is eternal, which is an attribute of Allah and is associated with Him.</p>
-<p>So far as written and recited words of Quran are concerned, these are the created ones and they are not the attribute of Allah, <em>but they indicate to the Words of Allah.</em></p>
-<p>The fatwa concludes with a warning: A common person should avoid venturing such philosophical discussions, for sometimes a man may fall in suspicion and doubt.</p>
-
-<h2>Is the Quran Created or Uncreated?</h2>
-<p>Maulana Nazrul Islam of Darul Ifta Birmingham provides further clarification on why this issue is considered so critical in Sunni theology.</p>
-
-<h3>Aqidah Tahawiyyah</h3>
-<blockquote>
-    “The Qur’an is the word of Allah that emanated from him without the modality of saying... Unlike human speech, it is eternal and uncreated. Whoever hears it and claims it is human speech has disbelieved.”
-    <cite>— Aqidah Tahawiyyah, p. 12</cite>
-</blockquote>
-<p>The Qur’an is the speech (<em>kalam</em>) of Allah. The speech of Allah is an attribute (<em>Sifat</em>) of Allah, and <em>the attributes of Allah cannot be created.</em></p>
-
-<h3>Fiqh Al Akbar</h3>
-<p>Imam Abu Hanifa writes in Fiqh Al Akbar:</p>
-<blockquote>
-    “Allah’s attributes are eternal, they are not new or created. Whoever says the attributes of Allah are not eternal or they are created or have doubts regarding them, he is a disbeliever in Allah (kafir)... To use our words to say the Qur’an, our writing of it or to use our words for its recitation is creation but in its originality, the Qur’an is not creation.”
-    <cite>— Fiqh Al Akbar, p. 20</cite>
-</blockquote>
-
-<h2>Aqeedah on Speech of Allah</h2>
-<p>Mufti Muhammad Ashraf of Jameah Mahmoodiyah provides a detailed breakdown of the Sunni creed regarding the speech of Allah, addressing complex philosophical objections.</p>
-<p>He explains that Sunni theology divides the concept of speech into two distinct categories to resolve the dilemma of how an eternal God can produce a temporal book.</p>
-
-<div class="comparison-container">
-    <h3 style="text-align: center; margin-bottom: 1.5rem; color: #2c3e50; border: none;">Sunni Theology: The Two Types of Speech</h3>
-    <div class="comparison-controls">
-        <button class="filter-btn active" data-filter="all">All Concepts</button>
-        <button class="filter-btn" data-filter="nafsi">Kalaam-e-Nafsi</button>
-        <button class="filter-btn" data-filter="lafzi">Kalaam-e-Lafzi</button>
-    </div>
-    <div class="comparison-grid">
-        <div class="comparison-card" data-category="nafsi">
-            <h4>Kalaam-e-Nafsi (Internal Speech)</h4>
-            <p>The speech as it exists within the mind and knowledge of Allah before being expressed in words or letters.</p>
-            <div class="views">
-                <div class="view nafsi">
-                    <strong>Attributes</strong>
-                    Ever-existing (Qadeem), uncreated, an eternal attribute of Allah, inseparable from His divine essence.
-                </div>
-                <div class="view nafsi">
-                    <strong>Theological Implication</strong>
-                    Denying its eternal nature is considered disbelief (kufr) by classical Sunni scholars.
+    <main>
+        <section>
+            <div class="w">
+                <a class="back" href="../index.html#/articles">← Back to all articles</a>
+                <div class="cols" style="margin-top:18px">
+                    <article class="article">
+                        <span class="tag">Theology · Oct 2026</span>
+                        <h1 class="serif">The Quran: Sunni Islam’s Multiple Gods?</h1>
+                        <p class="lead">By Anthony William · Published October 2026</p>
+                        
+                        <p>In this post I will be quoting several posts from IslamQA.org, a prominent, reputable Sunni website, in respect to the Quran being Allah’s speech.</p>
+                        
+                        <p>These answers prove that Sunni Islam has turned the Quran into a Christ-like figure by claiming it to be uncreated and a divine emanation from Allah.</p>
+                        
+                        <p>This in turn makes the Quran another divinity besides Allah, in fact 114 divine beings united together as one since each surah is supposed to be uncreated as well. All emphasis will be mine.</p>
+                        
+                        <h2 class="serif">Is the Quran created or uncreated speech of Allah?</h2>
+                        
+                        <p>A common question asked by those confused by the theological terminology is whether the Quran is created or uncreated.</p>
+                        
+                        <p>The answer from prominent Sunni institutions is unequivocal.</p>
+                        
+                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">Darul Uloom Deoband</h3>
+                        
+                        <p>Fatwa 915/818=B/1429 states:</p>
+                        
+                        <blockquote>"So all Sunnis, including the four major schools of jurisprudence and others among the later and earlier generations, agree that the Quran is uncreated." — Sharh al-Fiqh al-Akbar</blockquote>
+                        
+                        <p>However, calling the holy Quran eternal and uncreated means that the Word of Allah Almighty is eternal, which is an attribute of Allah and is associated with Him.</p>
+                        
+                        <p>So far as written and recited words of Quran are concerned, these are the created ones and they are not the attribute of Allah, <em>but they indicate to the Words of Allah.</em></p>
+                        
+                        <p>The fatwa concludes with a warning: A common person should avoid venturing such philosophical discussions, for sometimes a man may fall in suspicion and doubt.</p>
+                        
+                        <h2 class="serif">Is the Quran Created or Uncreated?</h2>
+                        
+                        <p>Maulana Nazrul Islam of Darul Ifta Birmingham provides further clarification on why this issue is considered so critical in Sunni theology.</p>
+                        
+                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">Aqidah Tahawiyyah</h3>
+                        
+                        <blockquote>“The Qur’an is the word of Allah that emanated from him without the modality of saying... Unlike human speech, it is eternal and uncreated. Whoever hears it and claims it is human speech has disbelieved.” — Aqidah Tahawiyyah, p. 12</blockquote>
+                        
+                        <p>The Qur’an is the speech (<em>kalam</em>) of Allah. The speech of Allah is an attribute (<em>Sifat</em>) of Allah, and <em>the attributes of Allah cannot be created.</em></p>
+                        
+                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">Fiqh Al Akbar</h3>
+                        
+                        <p>Imam Abu Hanifa writes in Fiqh Al Akbar:</p>
+                        
+                        <blockquote>“Allah’s attributes are eternal, they are not new or created. Whoever says the attributes of Allah are not eternal or they are created or have doubts regarding them, he is a disbeliever in Allah (kafir)... To use our words to say the Qur’an, our writing of it or to use our words for its recitation is creation but in its originality, the Qur’an is not creation.” — Fiqh Al Akbar, p. 20</blockquote>
+                        
+                        <h2 class="serif">Aqeedah on Speech of Allah</h2>
+                        
+                        <p>Mufti Muhammad Ashraf of Jameah Mahmoodiyah provides a detailed breakdown of the Sunni creed regarding the speech of Allah, addressing complex philosophical objections.</p>
+                        
+                        <p>He explains that Sunni theology divides the concept of speech into two distinct categories to resolve the dilemma of how an eternal God can produce a temporal book.</p>
+                        
+                        <h2 class="serif">A Comparison of the Two Types of Speech</h2>
+                        
+                        <table style="width:100%;border-collapse:collapse;margin:20px 0">
+                            <thead>
+                                <tr style="background:var(--ink);color:#F1EAD9">
+                                    <th style="padding:12px;text-align:left;border:1px solid var(--line)">Concept</th>
+                                    <th style="padding:12px;text-align:left;border:1px solid var(--line)">Attributes</th>
+                                    <th style="padding:12px;text-align:left;border:1px solid var(--line)">Theological Implication</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:12px;border:1px solid var(--line)"><strong>Kalaam-e-Nafsi</strong><br>(Internal Speech)</td>
+                                    <td style="padding:12px;border:1px solid var(--line)">Ever-existing (Qadeem), uncreated, an eternal attribute of Allah.</td>
+                                    <td style="padding:12px;border:1px solid var(--line)">Denying its eternal nature is considered disbelief (kufr) by classical Sunni scholars.</td>
+                                </tr>
+                                <tr style="background:var(--card)">
+                                    <td style="padding:12px;border:1px solid var(--line)"><strong>Kalaam-e-Lafzi</strong><br>(Expressed Speech)</td>
+                                    <td style="padding:12px;border:1px solid var(--line)">Haadith (newly created), temporal, consisting of physical sounds, letters, and materials.</td>
+                                    <td style="padding:12px;border:1px solid var(--line)">While the physical book is created, it points to and indicates the uncreated Words of Allah.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h2 class="serif">The Voice Moosa Heard and the Tree</h2>
+                        
+                        <p>The fatwa addresses a specific theological dilemma: How did Allah speak to Moosa if His speech is internal and uncreated?</p>
+                        
+                        <p>The answer provided is that the speech of Allah with Moosa is <em>Qadeem</em> (ever existing), but the voice and print form is <em>Haadith</em> (a creation).</p>
+                        
+                        <blockquote>"The voice Moosa heard was from a tree. Allah had created the voice therein for it to denote on His actual speech. This voice was Haadith and part of His creation. It was not His personal voice." — Sharhul Aqaaid An-Nasafiyyah, Page 62</blockquote>
+                        
+                        <p>The scholar compares this to music: a person tunes his voice to a tune. The tune is not the voice of the man, but it denotes meaningful speech.</p>
+                        
+                        <h2 class="serif">The Historical Context of the Debate</h2>
+                        
+                        <p>Interestingly, the scholars themselves advise against diving too deeply into these philosophical mechanics.</p>
+                        
+                        <p>Mufti Muhammad Ashraf notes that such topics were not prevalent during the age of the Sahabah (companions of the Prophet).</p>
+                        
+                        <p>He attributes the complex breakdown of <em>Kalaam-e-Nafsi</em> and <em>Kalaam-e-Lafzi</em> to the Mu’tazilah sect, who misinterpreted the issue in light of Greek philosophy.</p>
+                        
+                        <p>Initially, the Muhadditheen went only this far to assert: "The Qur’an is the speech of Allah, not creation."</p>
+                        
+                        <p>But when people started claiming that "the pages of the Qur’an and the ink is not creation"—which the Mu’tazilah mocked—the later theologians (<em>Mutakallimeen</em>) crystallized the issue into the two categories to defend orthodox beliefs.</p>
+                        
+                        <h2 class="serif">Sources and Further Reading</h2>
+                        
+                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">Related Articles</h3>
+                        
+                        <p>
+                            <a href="https://www.samshmnthelogy.net/post/al-quran-islam-s-uncreated-savior-mediator" target="_blank" rel="noopener">AL-QURAN: ISLAM’S UNCREATED SAVIOR & MEDIATOR</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/talking-quran-ibn-farooq-s-lies-exposed" target="_blank" rel="noopener">TALKING QURAN: IBN FAROOQ’S LIES EXPOSED</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/the-quran-s-uncreated-recitation" target="_blank" rel="noopener">THE QURAN'S UNCREATED RECITATION</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/the-uncreated-created-quran" target="_blank" rel="noopener">THE UNCREATED CREATED QURAN</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/allah-worships-with-the-quran" target="_blank" rel="noopener">ALLAH WORSHIPS WITH THE QURAN</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/allah-will-obliterate-the-quran" target="_blank" rel="noopener">Allah Will Obliterate the Quran</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/uthman-aisha-on-the-quran-s-errors" target="_blank" rel="noopener">Uthman & Aisha on the Quran’s Errors</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/miscellany-on-the-quran-s-haphazard-structure" target="_blank" rel="noopener">Miscellany on the Quran’s Haphazard Structure</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/is-the-quran-complete" target="_blank" rel="noopener">Is the Quran Complete?</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/shias-the-talking-quran" target="_blank" rel="noopener">SHIAS & THE TALKING QURAN</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/shias-on-the-corrupt-quran" target="_blank" rel="noopener">SHIAS ON THE CORRUPT QURAN</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/the-quran-s-divine-corporation" target="_blank" rel="noopener">The Quran’s Divine Corporation</a><br>
+                            <a href="https://www.samshmnthelogy.net/post/1924-quran-an-uninspired-human-compilation" target="_blank" rel="noopener">1924 QURAN: AN UNINSPIRED HUMAN COMPILATION</a>
+                        </p>
+                        
+                        <p style="margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px">
+                            <strong>Author:</strong> Anthony William<br>
+                            <strong>Tags:</strong> Sunni Islam, Theology, Quran, Kalam, Tawhid, Mu'tazilah, Aqidah, Attributes of Allah, Islamic Philosophy
+                        </p>
+                    </article>
+                    
+                    <aside>
+                        <div class="card">
+                            <h4>Browse Articles</h4>
+                            <a class="t" href="../index.html#/articles">All articles</a>
+                            <a class="t" href="../index.html#/articles/Theology">More Theology</a>
+                            <a class="t" href="../index.html#/qa">Ask a question</a>
+                        </div>
+                        <div class="card">
+                            <h4>Contact</h4>
+                            <div class="contact">
+                                <a href="https://wa.me/255703338311" target="_blank" rel="noopener" aria-label="WhatsApp">
+                                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 21l1.6-4.9A9 9 0 1 1 8 19.6L3 21Z"/>
+                                        <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-.8.8c-1-.4-1.8-1.2-2.2-2.2l.8-.8-1-2L9 9.5Z"/>
+                                    </svg>
+                                </a>
+                                <a href="mailto:anthonywilliam8311@gmail.com" aria-label="Email">
+                                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                        <path d="m3 7 9 6 9-6"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
             </div>
-        </div>
-        <div class="comparison-card" data-category="lafzi">
-            <h4>Kalaam-e-Lafzi (Expressed Speech)</h4>
-            <p>The physical manifestation of the speech: the recited words, the written ink, the paper, and created voices.</p>
-            <div class="views">
-                <div class="view lafzi">
-                    <strong>Attributes</strong>
-                    Haadith (newly created), temporal, consisting of physical sounds, letters, and materials.
-                </div>
-                <div class="view lafzi">
-                    <strong>Theological Implication</strong>
-                    While the physical book is created, it points to and indicates the uncreated Words of Allah.
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        </section>
+    </main>
 
-<h2>The Voice Moosa Heard and the Tree</h2>
-<p>The fatwa addresses a specific theological dilemma: How did Allah speak to Moosa if His speech is internal and uncreated?</p>
-<p>The answer provided is that the speech of Allah with Moosa is <em>Qadeem</em> (ever existing), but the voice and print form is <em>Haadith</em> (a creation).</p>
-<blockquote>
-    The voice Moosa heard was from a tree. Allah had created the voice therein for it to denote on His actual speech. This voice was Haadith and part of His creation. It was not His personal voice.
-    <cite>— Sharhul Aqaaid An-Nasafiyyah, Page 62</cite>
-</blockquote>
-<p>The scholar compares this to music: a person tunes his voice to a tune. The tune is not the voice of the man, but it denotes meaningful speech.</p>
+    <footer>
+        <p>© <span id="yr"></span> Theology and Apologetics · Anthony William</p>
+    </footer>
 
-<h2>The Historical Context of the Debate</h2>
-<p>Interestingly, the scholars themselves advise against diving too deeply into these philosophical mechanics.</p>
-<p>Mufti Muhammad Ashraf notes that such topics were not prevalent during the age of the Sahabah (companions of the Prophet).</p>
-<p>He attributes the complex breakdown of <em>Kalaam-e-Nafsi</em> and <em>Kalaam-e-Lafzi</em> to the Mu’tazilah sect, who misinterpreted the issue in light of Greek philosophy.</p>
-<p>Initially, the Muhadditheen went only this far to assert: "The Qur’an is the speech of Allah, not creation."</p>
-<p>But when people started claiming that "the pages of the Qur’an and the ink is not creation"—which the Mu’tazilah mocked—the later theologians (<em>Mutakallimeen</em>) crystallized the issue into the two categories to defend orthodox beliefs.</p>
-
-<div class="sources">
-    <h3>Sources and Further Reading</h3>
-    <ul>
-        <li><a href="https://www.samshmnthelogy.net/post/al-quran-islam-s-uncreated-savior-mediator" target="_blank">AL-QURAN: ISLAM’S UNCREATED SAVIOR & MEDIATOR</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/talking-quran-ibn-farooq-s-lies-exposed" target="_blank">TALKING QURAN: IBN FAROOQ’S LIES EXPOSED</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/the-quran-s-uncreated-recitation" target="_blank">THE QURAN'S UNCREATED RECITATION</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/the-uncreated-created-quran" target="_blank">THE UNCREATED CREATED QURAN</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/allah-worships-with-the-quran" target="_blank">ALLAH WORSHIPS WITH THE QURAN</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/allah-will-obliterate-the-quran" target="_blank">Allah Will Obliterate the Quran</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/uthman-aisha-on-the-quran-s-errors" target="_blank">Uthman & Aisha on the Quran’s Errors</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/miscellany-on-the-quran-s-haphazard-structure" target="_blank">Miscellany on the Quran’s Haphazard Structure</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/is-the-quran-complete" target="_blank">Is the Quran Complete?</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/shias-the-talking-quran" target="_blank">SHIAS & THE TALKING QURAN</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/shias-on-the-corrupt-quran" target="_blank">SHIAS ON THE CORRUPT QURAN</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/the-quran-s-divine-corporation" target="_blank">The Quran’s Divine Corporation</a></li>
-        <li><a href="https://www.samshmnthelogy.net/post/1924-quran-an-uninspired-human-compilation" target="_blank">1924 QURAN: AN UNINSPIRED HUMAN COMPILATION</a></li>
-    </ul>
-</div>
-
-<div class="author-section">
-    <p><strong>Author:</strong> samshmn</p>
-    <div class="tags">
-        <span class="tag">Sunni Islam</span>
-        <span class="tag">Theology</span>
-        <span class="tag">Quran</span>
-        <span class="tag">Kalam</span>
-        <span class="tag">Tawhid</span>
-        <span class="tag">Mu'tazilah</span>
-        <span class="tag">Aqidah</span>
-        <span class="tag">Attributes of Allah</span>
-        <span class="tag">Islamic Philosophy</span>
-    </div>
-</div>
-
-<script>
-    // Interactive filter functionality for the comparison component
-    const buttons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.comparison-card');
-
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const filter = btn.getAttribute('data-filter');
-            cards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-</script>
-
+    <script>
+        document.getElementById("yr").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
