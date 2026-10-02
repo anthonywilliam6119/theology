@@ -2,96 +2,181 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Did Jesus Claim to Be God? | Anthony William</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Did Jesus Claim to Be God? | Theology and Apologetics</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink: #2c3e50;
+            --card: #f8f9fa;
+            --line: #e0e0e0;
+            --muted: #7f8c8d;
+            --accent: #3498db;
+            --accent-hover: #2980b9;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.8;
-            color: #2c3e50;
+            font-family: 'Inter', 'Spectral', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--ink);
             background: #fafafa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
+            -webkit-font-smoothing: antialiased;
         }
+
+        /* --- Header & Navigation --- */
+        .bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .brand {
+            font-family: 'Spectral', serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--ink);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .brand small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--muted);
+            font-family: 'Inter', sans-serif;
+            margin-top: 2px;
+        }
+        nav {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* --- Main Layout --- */
+        .w {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .back {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+        .back:hover { opacity: 0.8; }
         
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* --- Article Styling --- */
+        .article {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        h1.serif {
+            font-family: 'Spectral', serif;
+            font-size: 2.4rem;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
             color: #1a1a1a;
+        }
+        .lead {
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+        h2.serif {
+            font-family: 'Spectral', serif;
+            font-size: 1.75rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--ink);
             line-height: 1.3;
         }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin: 2.5rem 0 1rem;
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            margin: 1.8rem 0 1rem;
+        h3.serif {
+            font-family: 'Spectral', serif;
+            font-size: 1.25rem;
             color: #34495e;
-            font-style: italic;
+            margin: 1.5rem 0 0.75rem;
         }
-        
-        .meta {
-            color: #7f8c8d;
-            font-size: 0.95rem;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        p {
-            margin-bottom: 1.3rem;
-            text-align: justify;
-        }
+        p { margin-bottom: 1.25rem; }
         
         blockquote {
-            border-left: 4px solid #3498db;
-            background: #ecf0f1;
-            padding: 1.2rem 1.5rem;
+            border-left: 4px solid var(--accent);
+            background: var(--card);
+            padding: 1.25rem 1.5rem;
             margin: 1.5rem 0;
             font-style: italic;
             border-radius: 0 8px 8px 0;
+            color: #444;
+            font-family: 'Spectral', serif;
+            font-size: 1.05rem;
         }
-        
         blockquote cite {
             display: block;
             margin-top: 0.5rem;
             font-size: 0.9rem;
-            color: #555;
+            color: var(--muted);
             font-style: normal;
-            font-weight: bold;
-        }
-        
-        em {
-            color: #c0392b;
             font-weight: 600;
         }
         
-        ul, ol {
-            margin: 1rem 0 1.5rem 2rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Interactive Comparison Component */
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        ul, ol { margin: 1rem 0 1.5rem 2rem; }
+        li { margin-bottom: 0.5rem; }
+
+        /* --- Interactive Comparison Component --- */
         .comparison-container {
-            margin: 3rem 0;
+            margin: 2.5rem 0;
             padding: 2rem;
-            background: white;
+            background: var(--card);
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid var(--line);
         }
-        
         .comparison-controls {
             display: flex;
             gap: 0.5rem;
@@ -99,83 +184,65 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        
         .filter-btn {
             padding: 0.6rem 1.3rem;
-            border: 2px solid #3498db;
-            background: white;
-            color: #3498db;
+            border: 2px solid var(--accent);
+            background: #fff;
+            color: var(--accent);
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
             font-size: 0.95rem;
         }
-        
-        .filter-btn:hover {
-            background: #3498db;
-            color: white;
-            transform: translateY(-2px);
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            color: #fff;
         }
-        
-        .filter-btn.active {
-            background: #3498db;
-            color: white;
-        }
-        
         .comparison-grid {
             display: grid;
             gap: 1.2rem;
         }
-        
         .comparison-card {
-            background: #f8f9fa;
+            background: #fff;
             border-radius: 10px;
             padding: 1.5rem;
-            border-left: 5px solid #3498db;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
             transition: transform 0.2s;
         }
-        
         .comparison-card:hover {
             transform: translateX(5px);
         }
-        
         .comparison-card h4 {
-            color: #2c3e50;
+            color: var(--ink);
             margin-bottom: 1rem;
             font-size: 1.15rem;
+            font-family: 'Spectral', serif;
         }
-        
         .views {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
             margin-top: 0.8rem;
         }
-        
         @media (max-width: 700px) {
-            .views {
-                grid-template-columns: 1fr;
-            }
+            .views { grid-template-columns: 1fr; }
         }
-        
         .view {
             padding: 1rem;
             border-radius: 8px;
             font-size: 0.95rem;
             line-height: 1.6;
         }
-        
         .view.jewish {
             background: #e8f5e9;
             border-left: 4px solid #27ae60;
         }
-        
         .view.christian {
             background: #e3f2fd;
             border-left: 4px solid #2196f3;
         }
-        
         .view strong {
             display: block;
             margin-bottom: 0.4rem;
@@ -183,59 +250,36 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
-        .view.jewish strong {
-            color: #27ae60;
-        }
-        
-        .view.christian strong {
-            color: #2196f3;
-        }
-        
-        /* Sources Section */
+        .view.jewish strong { color: #27ae60; }
+        .view.christian strong { color: #2196f3; }
+
+        /* --- Sources Section --- */
         .sources {
-            background: #ecf0f1;
+            background: var(--card);
             padding: 2rem;
             border-radius: 10px;
             margin-top: 3rem;
+            border: 1px solid var(--line);
         }
-        
         .sources h3 {
             margin-bottom: 1.2rem;
-            color: #2c3e50;
+            color: var(--ink);
             font-style: normal;
+            font-family: 'Spectral', serif;
+            font-size: 1.25rem;
         }
-        
-        .sources ul {
-            padding-left: 1.5rem;
-        }
-        
-        .sources li {
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-        
-        .sources a {
-            color: #3498db;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .sources a:hover {
-            text-decoration: underline;
-            color: #2980b9;
-        }
-        
-        /* Author Tags */
+        .sources ul { padding-left: 1.5rem; }
+        .sources li { margin-bottom: 0.8rem; font-size: 0.95rem; }
+
+        /* --- Author Tags --- */
         .author-section {
             margin-top: 3rem;
             padding-top: 2rem;
-            border-top: 2px solid #e0e0e0;
+            border-top: 1px solid var(--line);
             text-align: center;
-            color: #7f8c8d;
+            color: var(--muted);
             font-size: 0.9rem;
         }
-        
         .tags {
             margin-top: 1rem;
             display: flex;
@@ -243,524 +287,415 @@
             gap: 0.5rem;
             justify-content: center;
         }
-        
-        .tag {
-            background: #3498db;
+        .tag-item {
+            background: var(--accent);
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* --- Sidebar (Aside) --- */
+        aside { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1.5rem; 
+            position: sticky;
+            top: 80px;
+        }
+        .card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .card h4 {
+            font-family: 'Spectral', serif;
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            color: var(--ink);
+        }
+        .card .t {
+            display: block;
+            padding: 0.6rem 0;
+            color: var(--ink);
+            border-bottom: 1px solid var(--line);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .card .t:last-child { border-bottom: none; }
+        .card .t:hover { color: var(--accent); padding-left: 4px; transition: padding 0.2s; }
+        
+        .contact {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .contact a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--card);
+            color: var(--ink);
+            transition: all 0.2s;
+        }
+        .contact a:hover { background: var(--accent); color: #fff; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--line);
+            margin-top: 2rem;
+            background: #fff;
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVE DESIGN (Max Width 850px)
+           ========================================= */
+        @media (max-width: 850px) {
+            .bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 0.75rem 1.25rem;
+            }
+            nav a { font-size: 0.9rem; }
+            .w { padding: 1.5rem 1rem; }
+            .cols {
+                grid-template-columns: 1fr; /* Stack sidebar below article */
+                gap: 2rem;
+            }
+            .article { padding: 1.5rem 1.25rem; }
+            h1.serif { font-size: 1.85rem; }
+            h2.serif { font-size: 1.5rem; margin-top: 2rem; }
+            blockquote { padding: 1rem 1.25rem; font-size: 1rem; }
+            aside { position: static; } /* Remove sticky on mobile */
+            .card { padding: 1.25rem; }
+            .comparison-container { padding: 1.5rem 1rem; }
+        }
+
+        @media (max-width: 400px) {
+            h1.serif { font-size: 1.6rem; }
+            .brand { font-size: 1.1rem; }
+            nav { gap: 0.5rem 1rem; }
+            nav a { font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="bar">
+            <a href="../index.html" class="brand">
+                Theology & Apologetics
+                <small>Anthony William</small>
+            </a>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../index.html#/articles">Articles</a>
+                <a href="../index.html#/qa">Q&A</a>
+                <a href="../index.html#/resources">Resources</a>
+                <a href="../index.html#/about">About</a>
+            </nav>
+        </div>
+    </header>
 
-<h1>Did Jesus Claim to Be God?</h1>
-<p class="meta">By Anthony William · Published September 24, 2026</p>
+    <main>
+        <section>
+            <div class="w">
+                <a class="back" href="../index.html#/articles">← Back to all articles</a>
+                <div class="cols">
+                    <article class="article">
+                        <span class="tag">Theology · Sep 2026</span>
+                        <h1 class="serif">Did Jesus Claim to Be God?</h1>
+                        <p class="lead">By Anthony William · Published September 24, 2026</p>
+                        
+                        <p>Few questions have generated as much theological and historical discussion as the question: <em>Did Jesus of Nazareth claim to be God?</em></p>
+                        <p>For Christians, the answer is fundamentally yes. Christianity teaches that Jesus Christ is not merely a prophet, teacher, Messiah or messenger of God, but God the Son who became human.</p>
+                        <p>Judaism rejects this conclusion. Jewish theology maintains that God is one and that Jesus cannot be identified with God Himself. Rabbinic interpreters therefore read the relevant biblical passages differently from Christian theologians.</p>
+                        <p>Modern biblical scholarship adds another important distinction. Scholars often differentiate between what can be established about the historical Jesus, what the Gospel writers claim about Jesus, and what later Christian theology formulated concerning the nature of Christ.</p>
+                        <p>Consequently, the question should not be reduced to: "Did Jesus ever say the exact words, 'I am God'?"</p>
+                        <p>The more historically meaningful questions are:</p>
+                        <ul>
+                            <li>What did Jesus say about himself?</li>
+                            <li>What authority did he claim?</li>
+                            <li>How did his Jewish contemporaries understand those claims?</li>
+                            <li>How did the earliest Christians interpret him?</li>
+                            <li>And how did the Church Fathers eventually formulate the doctrine of Christ's divinity?</li>
+                        </ul>
+                        <p>This article examines these questions from Jewish, Christian and historical perspectives.</p>
 
-<h2>Introduction</h2>
-<p>Few questions have generated as much theological and historical discussion as the question: <em>Did Jesus of Nazareth claim to be God?</em></p>
-<p>For Christians, the answer is fundamentally yes. Christianity teaches that Jesus Christ is not merely a prophet, teacher, Messiah or messenger of God, but God the Son who became human.</p>
-<p>Judaism rejects this conclusion. Jewish theology maintains that God is one and that Jesus cannot be identified with God Himself. Rabbinic interpreters therefore read the relevant biblical passages differently from Christian theologians.</p>
-<p>Modern biblical scholarship adds another important distinction. Scholars often differentiate between what can be established about the historical Jesus, what the Gospel writers claim about Jesus, and what later Christian theology formulated concerning the nature of Christ.</p>
-<p>Consequently, the question should not be reduced to: "Did Jesus ever say the exact words, 'I am God'?"</p>
-<p>The more historically meaningful questions are:</p>
-<ul>
-    <li>What did Jesus say about himself?</li>
-    <li>What authority did he claim?</li>
-    <li>How did his Jewish contemporaries understand those claims?</li>
-    <li>How did the earliest Christians interpret him?</li>
-    <li>And how did the Church Fathers eventually formulate the doctrine of Christ's divinity?</li>
-</ul>
-<p>This article examines these questions from Jewish, Christian and historical perspectives.</p>
+                        <h2 class="serif">The first distinction: Jesus did not say the exact words "I am God"</h2>
+                        <p>One point should be established at the beginning. The canonical Gospels do not record Jesus saying the precise sentence: "I am God."</p>
+                        <p>This is important because sometimes Christian apologetic arguments are presented as though Jesus explicitly made that statement. He did not use those exact words in the Gospel narratives.</p>
+                        <p>However, Christianity has never depended exclusively upon such a sentence. The Christian argument is that Jesus made claims concerning his pre-existence, authority, relationship with God, ability to forgive sins, authority over the Sabbath, role in judgment, and relationship with the Father that together amount to a claim far beyond that of an ordinary prophet.</p>
+                        <p>This is particularly evident in the Gospel of John.</p>
 
-<h2>The first distinction: Jesus did not say the exact words "I am God"</h2>
-<p>One point should be established at the beginning.</p>
-<p>The canonical Gospels do not record Jesus saying the precise sentence: "I am God."</p>
-<p>This is important because sometimes Christian apologetic arguments are presented as though Jesus explicitly made that statement. He did not use those exact words in the Gospel narratives.</p>
-<p>However, Christianity has never depended exclusively upon such a sentence.</p>
-<p>The Christian argument is that Jesus made claims concerning his pre-existence, authority, relationship with God, ability to forgive sins, authority over the Sabbath, role in judgment, and relationship with the Father that together amount to a claim far beyond that of an ordinary prophet.</p>
-<p>This is particularly evident in the Gospel of John.</p>
+                        <h2 class="serif">The Gospel of John and the divine identity of Jesus</h2>
+                        <p>John begins his Gospel with extraordinarily high language concerning Jesus:</p>
+                        <blockquote>
+                            "In the beginning was the Word, and the Word was with God, and the Word was God."
+                            <cite>— John 1:1</cite>
+                        </blockquote>
+                        <p>A few verses later John says:</p>
+                        <blockquote>
+                            "And the Word became flesh."
+                            <cite>— John 1:14</cite>
+                        </blockquote>
+                        <p>The Christian interpretation is straightforward: The Word is divine, and the Word became human in Jesus Christ. This means that, according to John, Jesus' existence did not begin with his birth in Bethlehem. His identity reaches back to "the beginning."</p>
+                        <p>This is one of the most important differences between the Christian understanding of Jesus and the ordinary Jewish understanding of a prophet. A prophet is a human being who receives God's message. John's Jesus is presented as the pre-existent Word through whom creation itself came into existence.</p>
 
-<h2>The Gospel of John and the divine identity of Jesus</h2>
-<p>John begins his Gospel with extraordinarily high language concerning Jesus:</p>
-<blockquote>
-    "In the beginning was the Word, and the Word was with God, and the Word was God."
-    <cite>— John 1:1</cite>
-</blockquote>
-<p>A few verses later John says:</p>
-<blockquote>
-    "And the Word became flesh."
-    <cite>— John 1:14</cite>
-</blockquote>
-<p>The Christian interpretation is straightforward: The Word is divine, and the Word became human in Jesus Christ.</p>
-<p>This means that, according to John, Jesus' existence did not begin with his birth in Bethlehem. His identity reaches back to "the beginning."</p>
-<p>This is one of the most important differences between the Christian understanding of Jesus and the ordinary Jewish understanding of a prophet.</p>
-<p>A prophet is a human being who receives God's message. John's Jesus is presented as the pre-existent Word through whom creation itself came into existence.</p>
+                        <h3 class="serif">"Before Abraham was, I am"</h3>
+                        <p>One of the most debated statements of Jesus appears in John 8:58:</p>
+                        <blockquote>
+                            "Before Abraham was, I am."
+                            <cite>— John 8:58</cite>
+                        </blockquote>
+                        <p>The statement is unusual. Jesus does not merely say: "Before Abraham was, I was." Instead, John gives him the expression: ἐγώ εἰμι — <em>egō eimi</em> literally: "I am."</p>
+                        <p>Christian interpreters have traditionally connected this statement with Exodus 3:14, where God reveals Himself to Moses: "I AM WHO I AM." This has led Christian theologians to understand John 8:58 as a claim to divine pre-existence and, potentially, an allusion to the divine name.</p>
+                        <p>However, scholarly caution is necessary. The Greek expression <em>egō eimi</em> does not automatically mean "I am God" every time it appears. The expression can function in ordinary Greek as "I am he" or "it is I." Therefore, the theological meaning has to be established from the context of John's Gospel as a whole.</p>
 
-<h3>"Before Abraham was, I am"</h3>
-<p>One of the most debated statements of Jesus appears in John 8:58:</p>
-<blockquote>
-    "Before Abraham was, I am."
-    <cite>— John 8:58</cite>
-</blockquote>
-<p>The statement is unusual. Jesus does not merely say: "Before Abraham was, I was."</p>
-<p>Instead, John gives him the expression: ἐγώ εἰμι — <em>egō eimi</em> literally: "I am."</p>
-<p>Christian interpreters have traditionally connected this statement with Exodus 3:14, where God reveals Himself to Moses: "I AM WHO I AM."</p>
-<p>This has led Christian theologians to understand John 8:58 as a claim to divine pre-existence and, potentially, an allusion to the divine name.</p>
-<p>The context strengthens the Christian interpretation because Jesus is claiming existence prior to Abraham. Abraham belongs to the past. Jesus says: "Before Abraham was, I am."</p>
-<p>The statement therefore goes beyond claiming to be another prophet in the ordinary sense.</p>
-<p>However, scholarly caution is necessary. The Greek expression <em>egō eimi</em> does not automatically mean "I am God" every time it appears. The expression can function in ordinary Greek as "I am he" or "it is I."</p>
-<p>Therefore, the theological meaning has to be established from the context of John's Gospel as a whole, not simply from the two words themselves.</p>
+                        <h3 class="serif">"I and the Father are one"</h3>
+                        <p>John 10:30 contains another famous statement:</p>
+                        <blockquote>
+                            "I and the Father are one."
+                            <cite>— John 10:30</cite>
+                        </blockquote>
+                        <p>But the reaction of Jesus' opponents is equally important:</p>
+                        <blockquote>
+                            "You, being a man, make yourself God."
+                            <cite>— John 10:33</cite>
+                        </blockquote>
+                        <p>However, Jesus does not simply respond: "Yes, exactly. I am God." Instead, he quotes Psalm 82: "I said, you are gods." (John 10:34). This makes the passage more complicated than it sometimes appears in apologetic discussions. Jewish interpreters can point to the Psalm 82 quotation and argue that the language of "gods" or divine representation can sometimes be applied to human beings acting with authority from God.</p>
 
-<h3>"I and the Father are one"</h3>
-<p>John 10:30 contains another famous statement:</p>
-<blockquote>
-    "I and the Father are one."
-    <cite>— John 10:30</cite>
-</blockquote>
-<p>This verse has played a major role in Christian theology.</p>
-<p>But the reaction of Jesus' opponents is equally important:</p>
-<blockquote>
-    "You, being a man, make yourself God."
-    <cite>— John 10:33</cite>
-</blockquote>
-<p>This is significant because the Gospel itself presents Jesus' opponents as understanding his words as a claim of extraordinary status.</p>
-<p>However, Jesus does not simply respond: "Yes, exactly. I am God."</p>
-<p>Instead, he quotes Psalm 82:</p>
-<blockquote>
-    "I said, you are gods."
-    <cite>— John 10:34</cite>
-</blockquote>
-<p>This makes the passage more complicated than it sometimes appears in apologetic discussions.</p>
-<p>Christian interpreters generally understand John 10 as maintaining a unique unity between the Father and Son.</p>
-<p>Jewish interpreters, however, can point to the Psalm 82 quotation and argue that the language of "gods" or divine representation can sometimes be applied to human beings acting with authority from God.</p>
-<p>The debate therefore concerns not merely the sentence "I and the Father are one," but what kind of unity Jesus means.</p>
+                        <h3 class="serif">"My Lord and my God"</h3>
+                        <p>One of the strongest passages in the entire New Testament occurs after the resurrection. Thomas sees the risen Jesus and says:</p>
+                        <blockquote>
+                            "My Lord and my God!"
+                            <cite>— John 20:28</cite>
+                        </blockquote>
+                        <p>This is particularly important because the statement is addressed directly to Jesus. John does not correct Thomas. Instead, Jesus responds by discussing faith. Christian interpreters therefore understand this as an explicit confession of Jesus' divine identity.</p>
 
-<h3>"Whoever has seen me has seen the Father"</h3>
-<p>Another important statement appears in John 14:9:</p>
-<blockquote>
-    "Whoever has seen me has seen the Father."
-    <cite>— John 14:9</cite>
-</blockquote>
-<p>Christian theology sees this as a profound claim about Jesus' revelation of God.</p>
-<p>Jesus is not merely saying: "I speak about the Father." He says that seeing him is, in a meaningful sense, seeing the Father.</p>
-<p>Yet Christianity does not interpret this to mean that Jesus is the Father. This distinction became crucial to later Trinitarian theology.</p>
-<p>The Father and the Son are distinct persons, but both participate fully in the one divine being.</p>
-<p>This is why Christian theology says: Jesus is God, but Jesus is not the Father.</p>
-<p>That distinction may seem obvious to Christians today, but it represents centuries of theological reflection.</p>
+                        <h2 class="serif">Jesus and the forgiveness of sins</h2>
+                        <p>In Mark 2, Jesus tells a paralyzed man: "Son, your sins are forgiven." (Mark 2:5). The scribes immediately object: "Who can forgive sins but God alone?" (Mark 2:7).</p>
+                        <p>The passage is important because Jesus does not merely tell the man: "God has forgiven you." He personally declares: "Your sins are forgiven." Christian interpretation understands this as evidence that Jesus possesses an authority belonging to God. A Jewish or non-Trinitarian interpretation can respond that God may delegate authority to a human representative.</p>
 
-<h3>"My Lord and my God"</h3>
-<p>One of the strongest passages in the entire New Testament occurs after the resurrection.</p>
-<p>Thomas sees the risen Jesus and says:</p>
-<blockquote>
-    "My Lord and my God!"
-    <cite>— John 20:28</cite>
-</blockquote>
-<p>This is particularly important because the statement is addressed directly to Jesus. John does not correct Thomas. Instead, Jesus responds by discussing faith.</p>
-<p>Christian interpreters therefore understand this as an explicit confession of Jesus' divine identity.</p>
-<p>This is one of the strongest textual arguments that John's Gospel intends its readers to recognize Jesus as God.</p>
+                        <h2 class="serif">Jesus as judge of humanity</h2>
+                        <p>The New Testament also presents Jesus as the future judge. In John 5:22, Jesus says:</p>
+                        <blockquote>
+                            "The Father judges no one, but has entrusted all judgment to the Son."
+                            <cite>— John 5:22</cite>
+                        </blockquote>
+                        <p>This is a remarkable statement. In Jewish thought, God is ultimately the Judge. The Christian interpretation is that Jesus participates in God's eschatological authority.</p>
 
-<h2>Jesus and the forgiveness of sins</h2>
-<p>The Synoptic Gospels provide another important argument.</p>
-<p>In Mark 2, Jesus tells a paralyzed man:</p>
-<blockquote>
-    "Son, your sins are forgiven."
-    <cite>— Mark 2:5</cite>
-</blockquote>
-<p>The scribes immediately object:</p>
-<blockquote>
-    "Who can forgive sins but God alone?"
-    <cite>— Mark 2:7</cite>
-</blockquote>
-<p>The passage is important because Jesus does not merely tell the man: "God has forgiven you." He personally declares: "Your sins are forgiven."</p>
-<p>Jesus then heals the man and says that the Son of Man has authority on earth to forgive sins.</p>
-<p>Christian interpretation understands this as evidence that Jesus possesses an authority belonging to God.</p>
-<p>A Jewish or non-Trinitarian interpretation can respond that God may delegate authority to a human representative.</p>
-<p>This is an important distinction. The question is not whether God can empower a human being. The question is whether Jesus is exercising God's authority as a representative or because he possesses divine authority intrinsically.</p>
+                        <h2 class="serif">Jesus' relationship with the Father</h2>
+                        <p>There is, however, another side of the evidence. Jesus frequently distinguishes himself from the Father. He prays to God. He says that the Father sent him.</p>
+                        <p>He says: "The Father is greater than I." (John 14:28). In Mark 13:32, Jesus says concerning the day and hour: "But concerning that day or that hour, no one knows... neither the Son, but only the Father."</p>
+                        <p>Classical Christianity developed a sophisticated answer. Jesus is understood as fully God and fully human. According to this doctrine, some statements concern his humanity, while others concern his divine identity.</p>
 
-<h2>Jesus and the Sabbath</h2>
-<p>Another remarkable claim appears in Mark 2:28:</p>
-<blockquote>
-    "So the Son of Man is lord even of the Sabbath."
-    <cite>— Mark 2:28</cite>
-</blockquote>
-<p>The Sabbath was one of the most important commandments in Jewish life.</p>
-<p>Jesus does not merely interpret a minor ritual regulation. He places himself in a position of authority over the Sabbath.</p>
-<p>Christian theologians see this as another indication that Jesus possesses an authority that goes beyond that of an ordinary prophet.</p>
-<p>Again, however, the meaning depends on how one interprets the title "Son of Man."</p>
+                        <h2 class="serif">Jewish monotheism and the identity of God</h2>
+                        <p>To understand the Jewish objection, we must understand the Jewish concept of God. The central confession of Judaism is the Shema:</p>
+                        <blockquote>
+                            "Hear, O Israel: the LORD our God, the LORD is one."
+                            <cite>— Deuteronomy 6:4</cite>
+                        </blockquote>
+                        <p>Jewish theology takes God's uniqueness and oneness with enormous seriousness. Therefore, when Christians say: "Jesus is God, but the Father is God, and the Holy Spirit is God, yet there is only one God," Judaism does not recognize this as a legitimate development of biblical monotheism.</p>
 
-<h2>Jesus as judge of humanity</h2>
-<p>The New Testament also presents Jesus as the future judge.</p>
-<p>In Matthew 25, the Son of Man sits on the throne and separates humanity as a shepherd separates sheep from goats.</p>
-<p>In John 5:22, Jesus says:</p>
-<blockquote>
-    "The Father judges no one, but has entrusted all judgment to the Son."
-    <cite>— John 5:22</cite>
-</blockquote>
-<p>This is a remarkable statement. In Jewish thought, God is ultimately the Judge.</p>
-<p>The Christian interpretation is that Jesus participates in God's eschatological authority.</p>
-<p>This is another reason why early Christians came to understand Jesus as more than a prophet.</p>
+                        <h2 class="serif">Deuteronomy 18:15 — "A prophet like Moses"</h2>
+                        <p>Christians frequently connect this prophecy with Jesus because Peter explicitly applies the passage to Jesus in Acts 3:22–23. But Jewish interpretation is substantially different.</p>
+                        <p>The famous Jewish commentator Rashi explains: "One who is as I am, from your midst, of your brethren." He understands the promise in terms of prophet succeeding prophet. Ibn Ezra explains "like me" as meaning a prophet of God rather than a diviner. Rashbam similarly emphasizes that the prophet will teach Israel God's commandments. Modern scholar Robert Alter explains that the future prophet is "like Moses" particularly in function — acting as an intermediary between God and Israel.</p>
+                        <p>Traditional Jewish commentators do not identify the prophet in Deuteronomy 18 with Jesus. This means that the disagreement between Christianity and Judaism begins at the level of interpretive framework.</p>
 
-<h2>Jesus' relationship with the Father</h2>
-<p>There is, however, another side of the evidence.</p>
-<p>Jesus frequently distinguishes himself from the Father. He prays to God. He says that the Father sent him.</p>
-<p>He says:</p>
-<blockquote>
-    "The Father is greater than I."
-    <cite>— John 14:28</cite>
-</blockquote>
-<p>In Mark 13:32, Jesus says concerning the day and hour:</p>
-<blockquote>
-    "But concerning that day or that hour, no one knows... neither the Son, but only the Father."
-    <cite>— Mark 13:32</cite>
-</blockquote>
-<p>These passages have historically been important to Jewish critics of Christian theology and to groups that reject Trinitarian Christianity.</p>
-<p>If Jesus is God, they ask, how can God be greater than Jesus? How can Jesus pray to God? How can Jesus not know something that the Father knows?</p>
-<p>Classical Christianity developed a sophisticated answer.</p>
-<p>Jesus is understood as fully God and fully human. According to this doctrine, some statements concern his humanity, while others concern his divine identity.</p>
-<p>The Council of Chalcedon would eventually express this using the language of two natures in one person.</p>
-<p>But historically, the existence of these passages demonstrates why the doctrine of Christ required considerable theological clarification.</p>
+                        <h2 class="serif">Paul and the divinity of Christ</h2>
+                        <p>Paul's letters are earlier than the written Gospels and are therefore extremely important for historical study. In Philippians 2:6–11, Christ is described as existing in the form of God, becoming human, dying, and subsequently being exalted so that every knee bows to him.</p>
+                        <p>Another important passage is 1 Corinthians 8:6: "Yet for us there is one God, the Father... and one Lord, Jesus Christ, through whom are all things." Scholars have noted the importance of this passage because Paul appears to include Jesus within a reformulation of Jewish monotheistic confession.</p>
 
-<h2>Jewish monotheism and the identity of God</h2>
-<p>To understand the Jewish objection, we must understand the Jewish concept of God.</p>
-<p>The central confession of Judaism is the Shema:</p>
-<blockquote>
-    "Hear, O Israel: the LORD our God, the LORD is one."
-    <cite>— Deuteronomy 6:4</cite>
-</blockquote>
-<p>Jewish theology takes God's uniqueness and oneness with enormous seriousness.</p>
-<p>Therefore, when Christians say: "Jesus is God, but the Father is God, and the Holy Spirit is God, yet there is only one God," Judaism does not recognize this as a legitimate development of biblical monotheism.</p>
-<p>The Jewish objection is not simply: "We don't like Jesus." It is a theological objection concerning the nature and uniqueness of God.</p>
+                        <h2 class="serif">The earliest Church Fathers</h2>
+                        <p><strong>Ignatius of Antioch</strong> (early second century) refers to Jesus Christ as: "our God." His writings demonstrate that explicit belief in Christ's divinity was already present among Christian communities close to the apostolic generation.</p>
+                        <p><strong>Justin Martyr</strong> (second century) argues in his <em>Dialogue with Trypho</em> that Christ existed before his human birth and identifies Christ with the divine Word.</p>
+                        <p><strong>Irenaeus of Lyons</strong> speaks of Christ as: "our Lord, and God, and Saviour, and King." For Irenaeus, Jesus' divinity is connected with the Christian doctrine of salvation.</p>
+                        <p><strong>Tertullian</strong> (beginning of the third century) distinguished the Father, Son and Holy Spirit while maintaining that Christianity believes in one God, marking an important milestone in Trinitarian terminology.</p>
 
-<h2>How Jewish interpretation understands "Son of God"</h2>
-<p>Christianity gives special significance to the title "Son of God."</p>
-<p>But the expression has a broader background in Jewish Scripture.</p>
-<p>Israel itself is called God's son:</p>
-<blockquote>
-    "Israel is My firstborn son."
-    <cite>— Exodus 4:22</cite>
-</blockquote>
-<p>The king can also be described in sonship language.</p>
-<p>Therefore, Jewish interpreters do not automatically interpret "Son of God" as meaning: "This person is God Himself."</p>
-<p>This is an important linguistic and theological distinction.</p>
-<p>The Christian interpretation eventually gives "Son of God" a unique metaphysical meaning in relation to the Father. Jewish interpretation generally does not.</p>
-<p>The Jewish Encyclopedia discusses this distinction in detail.</p>
+                        <h2 class="serif">Did the Council of Nicaea invent the divinity of Jesus?</h2>
+                        <p>A common claim is: "Jesus was not considered God until the Council of Nicaea in 325." Historically, this is difficult to sustain. The writings of Ignatius, Justin Martyr and Irenaeus predate Nicaea and contain explicit claims about Jesus' divine status.</p>
+                        <p>Rather, Nicaea addressed a major controversy concerning how the Son relates to the Father. The Nicene Creed describes Jesus as: "God of God, Light of Light, very God of very God, begotten, not made, being of one substance with the Father." The Council was not introducing an entirely new belief, but defining the boundaries of orthodox Christian belief about Christ.</p>
 
-<h2>Deuteronomy 18:15 — "A prophet like Moses"</h2>
-<p>Another important text in discussions about Jesus is Deuteronomy 18:15:</p>
-<blockquote>
-    "The LORD your God will raise up for you a prophet like me from among your brothers. You shall listen to him."
-    <cite>— Deuteronomy 18:15</cite>
-</blockquote>
-<p>Christians frequently connect this prophecy with Jesus because Peter explicitly applies the passage to Jesus in Acts 3:22–23.</p>
-<p>But Jewish interpretation is substantially different.</p>
+                        <h2 class="serif">A comparison of Jewish and Christian interpretation</h2>
+                        
+                        <div class="comparison-container">
+                            <div class="comparison-controls">
+                                <button class="filter-btn active" data-filter="all">All Topics</button>
+                                <button class="filter-btn" data-filter="jewish">Jewish View</button>
+                                <button class="filter-btn" data-filter="christian">Christian View</button>
+                            </div>
+                            <div class="comparison-grid" id="comparisonGrid">
+                                <div class="comparison-card" data-category="christian">
+                                    <h4>Christian Interpretation</h4>
+                                    <div class="view christian">
+                                        <strong>On Jesus' Identity</strong>
+                                        Jesus is the pre-existent divine Word (Logos) who became flesh. His claims to pre-existence, forgiving sins, and receiving worship point to his intrinsic divine nature.
+                                    </div>
+                                </div>
+                                <div class="comparison-card" data-category="jewish">
+                                    <h4>Jewish Interpretation</h4>
+                                    <div class="view jewish">
+                                        <strong>On Jesus' Identity</strong>
+                                        God is absolutely one (Shema). Jesus is viewed as a human teacher or prophet, but not divine. Attributing divinity to a human violates strict monotheism.
+                                    </div>
+                                </div>
+                                <div class="comparison-card" data-category="christian">
+                                    <h4>Christian Interpretation</h4>
+                                    <div class="view christian">
+                                        <strong>On "Son of God"</strong>
+                                        A unique metaphysical title indicating Jesus shares the same divine essence as the Father, eternally begotten, not created.
+                                    </div>
+                                </div>
+                                <div class="comparison-card" data-category="jewish">
+                                    <h4>Jewish Interpretation</h4>
+                                    <div class="view jewish">
+                                        <strong>On "Son of God"</strong>
+                                        A metaphorical title used in the Hebrew Bible for the nation of Israel, the Davidic king, or righteous individuals, not indicating literal divinity.
+                                    </div>
+                                </div>
+                                <div class="comparison-card" data-category="christian">
+                                    <h4>Christian Interpretation</h4>
+                                    <div class="view christian">
+                                        <strong>On Deuteronomy 18:15</strong>
+                                        Fulfilled in Jesus as the ultimate Prophet like Moses, who not only speaks God's words but is God incarnate, as affirmed in Acts 3:22-23.
+                                    </div>
+                                </div>
+                                <div class="comparison-card" data-category="jewish">
+                                    <h4>Jewish Interpretation</h4>
+                                    <div class="view jewish">
+                                        <strong>On Deuteronomy 18:15</strong>
+                                        Refers to the succession of human prophets within Israel (as explained by Rashi and Ibn Ezra), not a prediction of God becoming human.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-<h3>Rashi</h3>
-<p>The famous Jewish commentator Rashi explains: "One who is as I am, from your midst, of your brethren."</p>
-<p>He then understands the promise in terms of prophet succeeding prophet.</p>
-<p>Rashi therefore does not interpret the passage as: "God Himself will become a prophet." Rather, it concerns the continuation of prophetic leadership among Israel.</p>
+                        <h2 class="serif">Final conclusion</h2>
+                        <p>So, did Jesus claim to be God? The most careful answer is: Jesus is not recorded as saying the exact words "I am God."</p>
+                        <p>However, the New Testament — especially the Gospel of John — presents Jesus as making claims that Christians understand as claims to divine identity. He speaks of pre-existence before Abraham. He claims unique unity with the Father. He exercises authority to forgive sins. And Thomas addresses the risen Jesus: "My Lord and my God."</p>
+                        <p>The Jewish interpretation reaches a different conclusion. Rabbinic commentators interpret prophetic passages within the framework of Israelite prophecy and do not understand them as predictions that God would become a human being.</p>
+                        <p>The early Church Fathers, on the other hand, demonstrate that Christians were calling Jesus divine well before the Council of Nicaea. Nicaea therefore did not suddenly invent the divinity of Christ in the fourth century. Rather, it gave a formal theological definition to a dispute that had been developing within Christianity for generations.</p>
+                        <p>What can be established historically is that belief in Jesus' divine status arose extremely early in Christianity and was not first invented at Nicaea. What Christians and Jews disagree about is what that early testimony actually means about the identity of God and Jesus.</p>
 
-<h3>Ibn Ezra</h3>
-<p>Ibn Ezra explains "like me" as meaning a prophet of God rather than a diviner.</p>
-<p>This is particularly significant because the immediate context contrasts Israel's prophetic system with pagan divination.</p>
+                        <div class="sources">
+                            <h3>Sources and Further Reading</h3>
+                            
+                            <h3 style="font-size: 1.1rem; margin-top: 1.5rem;">Biblical and Jewish Sources</h3>
+                            <ul>
+                                <li><a href="https://www.sefaria.org/Deuteronomy.18.15-19" target="_blank" rel="noopener">Deuteronomy 18:15–19 — Sefaria</a></li>
+                                <li><a href="https://www.sefaria.org/Rashi_on_Deuteronomy.18.15.1" target="_blank" rel="noopener">Rashi on Deuteronomy 18:15 — Sefaria</a></li>
+                                <li><a href="https://www.sefaria.org/sheets/341038" target="_blank" rel="noopener">Ibn Ezra and other Jewish interpretations of Deuteronomy 18:15 — Sefaria</a></li>
+                                <li><a href="https://www.jewishencyclopedia.com/articles/13912-son-of-god" target="_blank" rel="noopener">Jewish Encyclopedia — Son of God</a></li>
+                            </ul>
+                            
+                            <h3 style="font-size: 1.1rem; margin-top: 1.5rem;">Early Christian Sources</h3>
+                            <ul>
+                                <li><a href="https://www.newadvent.org/fathers/0104.htm" target="_blank" rel="noopener">Ignatius of Antioch — Letter to the Ephesians</a></li>
+                                <li><a href="https://www.newadvent.org/fathers/0128.htm" target="_blank" rel="noopener">Justin Martyr — Dialogue with Trypho</a></li>
+                                <li><a href="https://www.newadvent.org/fathers/0103.htm" target="_blank" rel="noopener">Irenaeus — Against Heresies</a></li>
+                                <li><a href="https://www.newadvent.org/fathers/0317.htm" target="_blank" rel="noopener">Tertullian — Against Praxeas</a></li>
+                                <li><a href="https://www.newadvent.org/fathers/3801.htm" target="_blank" rel="noopener">First Council of Nicaea — Nicene Creed</a></li>
+                            </ul>
+                            
+                            <h3 style="font-size: 1.1rem; margin-top: 1.5rem;">Academic Study</h3>
+                            <ul>
+                                <li><a href="https://academic.oup.com/book/5122/chapter-abstract/147715324" target="_blank" rel="noopener">Oxford Academic — The Self-Deification of Jesus in John</a></li>
+                            </ul>
+                        </div>
 
-<h3>Rashbam</h3>
-<p>Rashbam similarly emphasizes that the prophet will teach Israel God's commandments and will not lead Israel toward idolatry.</p>
+                        <div class="author-section">
+                            <p><strong>Author:</strong> Anthony William</p>
+                            <div class="tags">
+                                <span class="tag-item">Jesus Christ</span>
+                                <span class="tag-item">Divinity of Jesus</span>
+                                <span class="tag-item">Jesus is God</span>
+                                <span class="tag-item">Jewish Christianity</span>
+                                <span class="tag-item">Rabbinic Judaism</span>
+                                <span class="tag-item">Church Fathers</span>
+                                <span class="tag-item">Trinity</span>
+                                <span class="tag-item">Nicene Creed</span>
+                                <span class="tag-item">John 8:58</span>
+                                <span class="tag-item">John 10:30</span>
+                                <span class="tag-item">John 20:28</span>
+                                <span class="tag-item">Deuteronomy 18:15</span>
+                                <span class="tag-item">Christian Theology</span>
+                                <span class="tag-item">Biblical Scholarship</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <aside>
+                        <div class="card">
+                            <h4>Browse Articles</h4>
+                            <a class="t" href="../index.html#/articles">All articles</a>
+                            <a class="t" href="../index.html#/articles/Theology">More Theology</a>
+                            <a class="t" href="../index.html#/qa">Ask a question</a>
+                        </div>
+                        <div class="card">
+                            <h4>Contact</h4>
+                            <div class="contact">
+                                <a href="https://wa.me/255703338311" target="_blank" rel="noopener" aria-label="WhatsApp">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 21l1.6-4.9A9 9 0 1 1 8 19.6L3 21Z"/>
+                                        <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-.8.8c-1-.4-1.8-1.2-2.2-2.2l.8-.8-1-2L9 9.5Z"/>
+                                    </svg>
+                                </a>
+                                <a href="mailto:anthonywilliam8311@gmail.com" aria-label="Email">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                        <path d="m3 7 9 6 9-6"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<h3>Robert Alter</h3>
-<p>Modern Jewish biblical scholar and translator Robert Alter explains that the future prophet is "like Moses" particularly in function — acting as an intermediary between God and Israel and transmitting God's words.</p>
-<p>This is important because it demonstrates that even within Jewish interpretation there are several explanations of "like Moses," but none of these traditional readings requires the prophet to be God incarnate.</p>
+    <footer>
+        <p>© <span id="yr"></span> Theology and Apologetics · Anthony William</p>
+    </footer>
 
-<h2>Jesus and Deuteronomy 18 in the New Testament</h2>
-<p>The Christian interpretation becomes much stronger because the New Testament itself identifies Jesus with the passage.</p>
-<p>Peter says in Acts 3:</p>
-<blockquote>
-    "Moses said, 'The Lord God will raise up for you a prophet like me from your brothers. You shall listen to him.'"
-    <cite>— Acts 3:22</cite>
-</blockquote>
-<p>Peter then applies the passage to Jesus. Stephen does the same in Acts 7:37.</p>
-<p>Therefore: The New Testament explicitly interprets Deuteronomy 18 as pointing to Jesus.</p>
-<p>But there is a crucial distinction.</p>
-<p>Acts identifies Jesus as the prophet like Moses. Deuteronomy 18 itself does not say: "God will become a prophet."</p>
-<p>That conclusion comes from combining Deuteronomy with the wider Christian belief that Jesus is divine.</p>
-<p>This distinction is important when debating the passage.</p>
+    <script>
+        // Update copyright year
+        document.getElementById("yr").textContent = new Date().getFullYear();
 
-<h2>Did Jewish rabbis believe the prophet of Deuteronomy 18 was Jesus?</h2>
-<p>No.</p>
-<p>Traditional Jewish commentators such as Rashi, Ibn Ezra and Rashbam do not identify the prophet in Deuteronomy 18 with Jesus.</p>
-<p>Rashi understands the passage within the succession of Israelite prophets. Rashbam emphasizes faithfulness to the Torah.</p>
-<p>This means that the disagreement between Christianity and Judaism begins at the level of interpretive framework.</p>
-<p>Christianity reads the Hebrew Bible retrospectively through the life, death and resurrection of Jesus. Rabbinic Judaism interprets the Torah within the continuing Jewish tradition and does not accept the New Testament as authoritative.</p>
+        // Interactive filter functionality for the comparison component
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.comparison-card');
 
-<h2>The historical Jesus and the Gospel Jesus</h2>
-<p>Modern scholarship introduces another distinction that should not be ignored.</p>
-<p>There is a difference between: the historical Jesus and the Jesus presented by each Gospel.</p>
-<p>The four Gospels were written in different literary and theological contexts.</p>
-<p>Matthew, Mark and Luke are often called the Synoptic Gospels because of their close literary relationship. John is significantly different in style and theology.</p>
-<p>John's Gospel gives Jesus some of the most explicit statements concerning pre-existence and divine identity.</p>
-<p>This does not mean that John invented Jesus' divinity. But it does mean that historians must carefully distinguish between the historical reconstruction of Jesus and John's theological presentation.</p>
-
-<h2>Paul and the divinity of Christ</h2>
-<p>Paul's letters are earlier than the written Gospels and are therefore extremely important for historical study.</p>
-<p>Paul's letters contain remarkably high claims concerning Jesus.</p>
-<p>In Philippians 2:6–11, Christ is described as existing in the form of God, becoming human, dying, and subsequently being exalted so that every knee bows to him.</p>
-<p>The passage has been interpreted in various ways, but it clearly places Jesus in an extraordinarily exalted position.</p>
-<p>Another important passage is 1 Corinthians 8:6:</p>
-<blockquote>
-    "Yet for us there is one God, the Father... and one Lord, Jesus Christ, through whom are all things."
-    <cite>— 1 Corinthians 8:6</cite>
-</blockquote>
-<p>Scholars have noted the importance of this passage because Paul appears to include Jesus within a reformulation of Jewish monotheistic confession.</p>
-<p>This becomes important when asking whether belief in Jesus' divine status was a late invention.</p>
-<p>The evidence indicates that very high Christology existed extremely early in Christianity.</p>
-
-<h2>The earliest Church Fathers</h2>
-<p>The Church Fathers are particularly valuable because they demonstrate how Christians understood Jesus after the apostolic period.</p>
-
-<h3>Ignatius of Antioch</h3>
-<p>Ignatius of Antioch lived around the beginning of the second century.</p>
-<p>In his Letter to the Ephesians he refers to Jesus Christ as: "our God."</p>
-<p>This is historically significant because Ignatius is relatively close to the apostolic generation.</p>
-<p>His writings demonstrate that explicit belief in Christ's divinity was already present among Christian communities in the early second century.</p>
-<p><a href="https://www.newadvent.org/fathers/0104.htm" target="_blank">Ignatius of Antioch — Letter to the Ephesians</a></p>
-
-<h3>Justin Martyr</h3>
-<p>Justin Martyr lived in the second century and engaged directly with Jewish objections to Christianity.</p>
-<p>In his Dialogue with Trypho, Justin argues that Christ existed before his human birth and identifies Christ with the divine Word.</p>
-<p>Justin's writings are particularly important because they show that Christians were already defending the divinity and pre-existence of Christ in debates with Jews.</p>
-<p><a href="https://www.newadvent.org/fathers/0128.htm" target="_blank">Justin Martyr — Dialogue with Trypho</a></p>
-<p>Justin does not simply say: "Jesus was a prophet." He presents Jesus as the pre-existent divine Logos who became human.</p>
-
-<h3>Irenaeus of Lyons</h3>
-<p>Irenaeus lived in the second century and became one of the most important defenders of apostolic Christianity.</p>
-<p>He speaks of Christ as: "our Lord, and God, and Saviour, and King."</p>
-<p>For Irenaeus, Jesus' divinity is connected with the Christian doctrine of salvation.</p>
-<p>Christ had to truly become human in order to save humanity, while remaining divine.</p>
-<p><a href="https://www.newadvent.org/fathers/0103.htm" target="_blank">Irenaeus — Against Heresies</a></p>
-
-<h3>Tertullian and the Trinity</h3>
-<p>By the beginning of the third century, Christian thinkers were developing increasingly precise terminology.</p>
-<p>Tertullian is especially important.</p>
-<p>He distinguished the Father, Son and Holy Spirit while maintaining that Christianity believes in one God.</p>
-<p>His Against Praxeas is an important milestone in the development of Trinitarian terminology.</p>
-<p><a href="https://www.newadvent.org/fathers/0317.htm" target="_blank">Tertullian — Against Praxeas</a></p>
-<p>This reveals an important historical point: The belief that Jesus was divine existed before the formal doctrine of the Trinity was fully defined.</p>
-<p>The Church Fathers were attempting to explain how the Christian belief in one God could coexist with the divinity of the Father, Son and Holy Spirit.</p>
-
-<h2>Did the Council of Nicaea invent the divinity of Jesus?</h2>
-<p>A common claim is: "Jesus was not considered God until the Council of Nicaea in 325."</p>
-<p>Historically, this is difficult to sustain.</p>
-<p>The writings of Ignatius, Justin Martyr and Irenaeus predate Nicaea and contain explicit claims about Jesus' divine status.</p>
-<p>Nicaea therefore did not invent the idea that Jesus was divine.</p>
-<p>Rather, Nicaea addressed a major controversy concerning how the Son relates to the Father.</p>
-<p>The Nicene Creed describes Jesus as: "God of God, Light of Light, very God of very God, begotten, not made, being of one substance with the Father."</p>
-<p><a href="https://www.newadvent.org/fathers/3801.htm" target="_blank">The First Council of Nicaea — Nicene Creed</a></p>
-<p>The Greek word <em>homoousios</em>, commonly translated "of one substance" or "consubstantial," became central to the controversy.</p>
-<p>The Council was therefore not introducing an entirely new belief. It was defining the boundaries of what the bishops considered orthodox Christian belief about Christ.</p>
-
-<h2>What did the Council actually settle?</h2>
-<p>The controversy involved the relationship between the Father and the Son.</p>
-<p>The theological question was essentially: Is the Son a created being who is below God, or does the Son fully share the divine nature?</p>
-<p>The Nicene answer was that the Son is not created. He is: "begotten, not made." And he is: "of one substance with the Father."</p>
-<p>This became one of the foundational statements of orthodox Christian Christology.</p>
-
-<h2>The Jewish objection to the Trinity</h2>
-<p>From a Jewish perspective, however, this development does not solve the fundamental problem.</p>
-<p>The objection remains: How can God be one if Father, Son and Holy Spirit are distinct?</p>
-<p>Christianity responds: God is one being, not one person.</p>
-<p>The Father is God. The Son is God. The Holy Spirit is God. But the Father is not the Son, the Son is not the Spirit, and the Spirit is not the Father.</p>
-<p>This is the classical doctrine of the Trinity.</p>
-<p>Judaism does not accept this formulation as the meaning of biblical monotheism.</p>
-
-<h2>Why the Jewish-Christian debate is so difficult</h2>
-<p>The debate is difficult because the two traditions begin with different assumptions about authority.</p>
-<p>Christianity accepts: Old Testament + New Testament + apostolic interpretation + Church tradition.</p>
-<p>Rabbinic Judaism accepts: Hebrew Bible + rabbinic tradition + Jewish interpretation.</p>
-<p>Therefore, when a Christian quotes Acts 3 and says: "Peter tells us that Deuteronomy 18 refers to Jesus," a Jewish interpreter can respond: "Acts is not an authoritative interpretation of the Torah."</p>
-<p>Conversely, when a rabbi says: "Rashi says Deuteronomy 18 refers to Israelite prophets," a Christian can respond: "Rashi lived centuries after Jesus and does not determine the meaning of the New Testament."</p>
-<p>Both sides are operating within different interpretive traditions.</p>
-
-<h2>Jesus as Prophet and Jesus as God</h2>
-<p>This brings us to an important question. Can Jesus be both prophet and God?</p>
-<p>Christianity answers: Yes.</p>
-<p>Jesus can be understood as a prophet in his human ministry while simultaneously being divine.</p>
-<p>This is not considered contradictory within Trinitarian Christianity because "prophet" describes his mission and role, while "God" describes his nature.</p>
-<p>Judaism does not accept this combination. From the Jewish perspective, a prophet is a human messenger of God and is not God himself.</p>
-<p>This distinction is central to the disagreement.</p>
-
-<h2>What about Jesus praying to God?</h2>
-<p>This is one of the strongest questions raised against the Christian doctrine.</p>
-<p>Jesus prays. To whom? To the Father.</p>
-<p>If Jesus is God, why does God pray to God?</p>
-<p>Christian theology answers by distinguishing between the Son and the Father.</p>
-<p>Jesus is not praying to himself as though the Father and Son were the same person. He is praying as the Son to the Father.</p>
-<p>The incarnation also means that Jesus genuinely possesses human nature. Thus, prayer belongs naturally to Jesus' human existence.</p>
-<p>Jewish critics, however, can argue that this distinction is a theological development rather than the plain meaning of the Gospel narratives.</p>
-
-<h2>What about Jesus saying that the Father is greater?</h2>
-<p>John 14:28 says: "The Father is greater than I."</p>
-<p>This has been used extensively by non-Trinitarian interpreters.</p>
-<p>Christian theology traditionally understands this in the context of Jesus' incarnate condition.</p>
-<p>The Son voluntarily takes the position of servant and enters human existence. Philippians 2:6–8 is therefore often used alongside John 14:28.</p>
-<p>The Christian argument is: Jesus is divine by nature but subordinate in his incarnate mission.</p>
-<p>Jewish interpretation does not accept this distinction because it does not accept the underlying premise that Jesus possesses divine nature.</p>
-
-<h2>Jesus and worship</h2>
-<p>Another important question is whether Jesus receives worship.</p>
-<p>After the resurrection, Matthew 28:9 says that the disciples took hold of Jesus' feet and worshiped him.</p>
-<p>Matthew 28:17 similarly says: "When they saw him they worshiped him."</p>
-<p>The Greek verb is <em>proskyneō</em>.</p>
-<p>This word can refer to worship of God, but it can also describe acts of homage or prostration before human authorities.</p>
-<p>Therefore, the word by itself cannot settle the question. The meaning depends upon context.</p>
-<p>Christian interpretation understands the post-resurrection worship of Jesus as evidence of his divine status.</p>
-<p>Jewish interpretation can understand prostration as homage without implying that Jesus is God.</p>
-
-<h2>Jesus' resurrection and divine identity</h2>
-<p>For Christianity, the resurrection changes the entire question.</p>
-<p>If Jesus rose from the dead, then his previous claims and actions acquire a different significance.</p>
-<p>The earliest Christians did not merely say: "Jesus was a good teacher." They proclaimed: Jesus is risen.</p>
-<p>Paul makes the resurrection central to Christian faith in 1 Corinthians 15.</p>
-<p>The resurrection became the foundation for the Christian conviction that Jesus is the Messiah and Lord.</p>
-<p>Therefore, the Christian argument concerning Jesus' divinity cannot be separated from the resurrection.</p>
-
-<h2>A comparison of Jewish and Christian interpretation</h2>
-<div class="comparison-container">
-    <div class="comparison-controls">
-        <button class="filter-btn active" data-filter="all">All Topics</button>
-        <button class="filter-btn" data-filter="jewish">Jewish View</button>
-        <button class="filter-btn" data-filter="christian">Christian View</button>
-    </div>
-    <div class="comparison-grid" id="comparisonGrid"></div>
-</div>
-
-<h2>Was belief in Jesus' divinity a late invention?</h2>
-<p>The historical evidence argues against a simplistic "late invention" theory.</p>
-<p>There is a clear progression: Jesus → Paul → Gospels → Apostolic Fathers → Church Fathers → Nicaea → later Trinitarian formulations.</p>
-<p>The important point is that the earliest stages already contain very high claims concerning Jesus.</p>
-<p>Paul's letters predate the written Gospels. The Gospels present Jesus with extraordinary authority. Ignatius calls Jesus God. Justin argues for the pre-existent divine Logos. Irenaeus calls Christ God. Tertullian develops technical language concerning Father, Son and Spirit. Nicaea later formalizes the doctrine against competing interpretations.</p>
-<p>Thus, the doctrine developed, but development does not necessarily mean invention.</p>
-<p>A useful analogy is that a belief can exist before its technical vocabulary is fully developed.</p>
-<p>The Church Fathers did not all speak identically</p>
-<p>It is also important not to portray the early Church Fathers as if they all used exactly the same theological terminology.</p>
-<p>There was development. Some early writers speak of Christ in strongly divine language but do not yet have the fully developed terminology of the fourth-century Trinity. Others emphasize the Father's primacy in ways later theologians had to clarify.</p>
-<p>This is normal in the development of theological language.</p>
-<p>The central question is therefore not: "Did the Church Fathers use the Nicene Creed before 325?" They obviously did not.</p>
-<p>The better question is: "Did Christians before Nicaea already regard Jesus as possessing divine status?"</p>
-<p>The answer is clearly yes.</p>
-
-<h2>The difference between "Jesus is God" and "Jesus is the Father"</h2>
-<p>This distinction is frequently misunderstood.</p>
-<p>Christianity does not teach: Jesus = the Father.</p>
-<p>Instead, orthodox Christianity teaches: Jesus = the Son. And: The Son is God. But: The Son is not the Father.</p>
-<p>This is why the Trinity is formulated as: One God, three persons.</p>
-<p>The Father is God. The Son is God. The Holy Spirit is God. But the Father is not the Son. The Son is not the Holy Spirit. The Holy Spirit is not the Father.</p>
-<p>This theological distinction developed over centuries in response to biblical tensions and theological controversies.</p>
-
-<h2>The strongest argument for the Christian position</h2>
-<p>The strongest Christian case is not based on one verse. It is cumulative.</p>
-<p>Christians point to:</p>
-<ul>
-    <li>John 1:1 — the Word was God.</li>
-    <li>John 1:14 — the Word became flesh.</li>
-    <li>John 8:58 — Jesus existed before Abraham.</li>
-    <li>John 10:30 — Jesus and the Father are one.</li>
-    <li>John 14:9 — seeing Jesus is seeing the Father.</li>
-    <li>John 20:28 — Thomas calls Jesus "God."</li>
-    <li>Mark 2:5–12 — Jesus forgives sins.</li>
-    <li>Mark 2:28 — Jesus is Lord of the Sabbath.</li>
-    <li>Matthew 25 — Jesus exercises final judgment.</li>
-    <li>Philippians 2:6–11 — Christ exists in the form of God and receives universal homage.</li>
-    <li>1 Corinthians 8:6 — Jesus is incorporated into Paul's monotheistic confession.</li>
-</ul>
-<p>The Christian argument is therefore: Jesus does not need to say the exact sentence "I am God" if his words and actions communicate that identity.</p>
-
-<h2>The strongest Jewish objection</h2>
-<p>The Jewish objection is also cumulative.</p>
-<p>Jewish interpreters point to:</p>
-<ul>
-    <li>Deuteronomy 6:4 — God is one.</li>
-    <li>Deuteronomy 4:15–16 — Israel must not make an image of God.</li>
-    <li>Numbers 23:19 — God is not a man.</li>
-    <li>John 14:28 — the Father is greater than Jesus.</li>
-    <li>Mark 13:32 — the Son does not know the day and hour.</li>
-    <li>John 17:3 — Jesus calls the Father "the only true God."</li>
-    <li>Mark 12:29 — Jesus affirms the Shema.</li>
-</ul>
-<p>The Jewish argument is therefore: Jesus speaks of God as someone other than himself, prays to God, receives authority from God, and distinguishes himself from God.</p>
-<p>Consequently, Jewish interpretation does not accept the Christian conclusion.</p>
-
-<h2>The historical question</h2>
-<p>At this point, the question should be divided into two separate questions.</p>
-<p>What does Christianity teach? Christianity teaches that Jesus is fully divine and fully human. This became formally articulated in the doctrines of the Trinity and the incarnation.</p>
-<p>What does the New Testament present? The New Testament presents Jesus as an extraordinarily exalted figure whose identity is connected to God's purposes, authority, kingdom, judgment and salvation. John presents the strongest explicit divine Christology.</p>
-<p>What can historians establish? Historians can establish that very early Christians worshiped Jesus and attributed extraordinary divine status to him.</p>
-<p>They cannot, using historical methodology alone, prove the metaphysical proposition: "Jesus is God." That is ultimately a theological claim.</p>
-<p>Historical research can investigate what people believed, what texts say, when those texts were written, and how beliefs developed.</p>
-<p>Whether Jesus actually is God is a theological and philosophical question that goes beyond what historical method alone can demonstrate.</p>
-
-<h2>Final conclusion</h2>
-<p>So, did Jesus claim to be God?</p>
-<p>The most careful answer is:</p>
-<p>Jesus is not recorded as saying the exact words "I am God."</p>
-<p>However, the New Testament — especially the Gospel of John — presents Jesus as making claims that Christians understand as claims to divine identity.</p>
-<p>He speaks of pre-existence before Abraham. He claims unique unity with the Father. He says that seeing him is seeing the Father. He exercises authority to forgive sins. He claims authority over the Sabbath. He is presented as the final judge. And Thomas addresses the risen Jesus: "My Lord and my God."</p>
-<p>The Jewish interpretation reaches a different conclusion.</p>
-<p>Rabbinic commentators such as Rashi and Ibn Ezra interpret prophetic passages such as Deuteronomy 18:15 within the framework of Israelite prophecy and do not understand them as predictions that God would become a human being.</p>
-<p>The early Church Fathers, on the other hand, demonstrate that Christians were calling Jesus divine well before the Council of Nicaea. Ignatius, Justin Martyr and Irenaeus provide particularly important evidence.</p>
-<p>Nicaea therefore did not suddenly invent the divinity of Christ in the fourth century. Rather, it gave a formal theological definition to a dispute that had been developing within Christianity for generations. The Nicene Creed explicitly describes Christ as "God of God, Light of Light, very God of very God" and "of one substance with the Father."</p>
-<p>The deepest disagreement between Judaism and Christianity is therefore not simply about whether Jesus used the phrase "I am God."</p>
-<p>It concerns the fundamental question: Who is Jesus?</p>
-<p>Was he a prophet sent by God? Was he the Jewish Messiah? Was he the greatest prophet like Moses? Was he the divine Messiah? Or was he, as Christianity ultimately claims, God who entered human history in the person of the Son?</p>
-<p>The answer depends ultimately upon how one interprets the biblical evidence, the resurrection claim, Jewish monotheism, apostolic testimony and the development of Christian theology.</p>
-<p>What can be established historically is that belief in Jesus' divine status arose extremely early in Christianity and was not first invented at Nicaea.</p>
-<p>What Christians and Jews disagree about is what that early testimony actually means about the identity of God and Jesus.</p>
-
-<div class="sources">
-    <h3>Sources and Further Reading</h3>
-    
-    <h3 style="font-size: 1.1rem; margin-top: 1.5rem;">Biblical and Jewish Sources</h3>
-    <ul>
-        <li><a href="https://www.sefaria.org/Deuteronomy.18.15-19" target="_blank">Deuteronomy 18:15–19 — Sefaria</a></li>
-        <li><a href="https://www.sefaria.org/Rashi_on_Deuteronomy.18.15.1" target="_blank">Rashi on Deuteronomy 18:15 — Sefaria</a></li>
-        <li><a href="https://www.sefaria.org/sheets/341038" target="_blank">Ibn Ezra and other Jewish interpretations of Deuteronomy 18:15 — Sefaria</a></li>
-        <li><a href="https://www.jewishencyclopedia.com/articles/13912-son-of-god" target="_blank">Jewish Encyclopedia — Son of God</a></li>
-    </ul>
-    
-    <h3 style="font-size: 1.1rem; margin-top: 1.5rem;">Early Christian Sources</h3>
-    <ul>
-        <li><a href="https://www.newadvent.org/fathers/0104.htm" target="_blank">Ignatius of Antioch — Letter to the Ephesians</a></li>
-        <li><a href="https://www.newadvent.org/fathers/0128.htm" target="_blank">Justin Martyr — Dialogue with Trypho</a></li>
-        <li><a href="https://www.newadvent.org/fathers/0103.htm" target="_blank">Irenaeus — Against Heresies</a></li>
-        <li><a href="https://www.newadvent.org/fathers/0317.htm" target="_blank">Tertullian — Against Praxeas</a></li>
-        <li><a href="https://www.newadvent.org/fathers/3801.htm" target="_blank">First Council of Nicaea — Nicene Creed</a></li>
-    </ul>
-    
-    <h3 style="font-size: 1.1rem; margin-top: 1.5rem;">Academic Study</h3>
-    <ul>
-        <li><a href="https://academic.oup.com/book/5122/chapter-abstract/147715324" target="_blank">Oxford Academic — The Self-Deification of Jesus in John</a></li>
-    </ul>
-</div>
-
-<div class="author-section">
-    <p><strong>Author:</strong> Anthony William</p>
-    <div class="tags">
-        <span class="tag">Jesus Christ</span>
-        <span class="tag">Divinity of Jesus</span>
-        <span class="tag">Jesus is God</span>
-        <span class="tag">Jewish Christianity</span>
-        <span class="tag">Rabbinic Judaism</span>
-        <span class="tag">Church Fathers</span>
-        <span class="tag">Trinity</span>
-        <span class="tag">Nicene Creed</span>
-        <span class="tag">John 8:58</span>
-        <span class="tag">John 10:30</span>
-        <span class="tag">John 20:28</span>
-        <span class="tag">Deuteronomy 18:15</span>
-        <span class="tag">Christian Theology</span>
-        <span class="tag">Biblical Scholarship</span>
-    </div>
-</div>
-
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
