@@ -2,12 +2,308 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Mary as the Mother of God | Theology and Apologetics</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #2c3e50;
+            --card: #f8f9fa;
+            --line: #e0e0e0;
+            --muted: #7f8c8d;
+            --accent: #3498db;
+            --accent-hover: #2980b9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', 'Spectral', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--ink);
+            background: #fafafa;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Header & Navigation --- */
+        .bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .brand {
+            font-family: 'Spectral', serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--ink);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .brand small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--muted);
+            font-family: 'Inter', sans-serif;
+            margin-top: 2px;
+        }
+        nav {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* --- Main Layout --- */
+        .w {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .back {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+        .back:hover { opacity: 0.8; }
+        
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* --- Article Styling --- */
+        .article {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        h1.serif {
+            font-family: 'Spectral', serif;
+            font-size: 2.4rem;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+        .lead {
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+        h2.serif {
+            font-family: 'Spectral', serif;
+            font-size: 1.75rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+        h3.serif {
+            font-family: 'Spectral', serif;
+            font-size: 1.25rem;
+            color: #34495e;
+            margin: 1.5rem 0 0.75rem;
+        }
+        p { margin-bottom: 1.25rem; }
+        
+        blockquote {
+            border-left: 4px solid var(--accent);
+            background: var(--card);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            color: #444;
+            font-family: 'Spectral', serif;
+            font-size: 1.05rem;
+        }
+        
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* --- Table Styling --- */
+        .responsive-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* Ensures table doesn't squish on mobile */
+        }
+        th {
+            background: var(--ink);
+            color: #fff;
+            padding: 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        td {
+            padding: 14px;
+            border-top: 1px solid var(--line);
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+        tr:nth-child(even) { background: var(--card); }
+
+        /* --- Sidebar (Aside) --- */
+        aside { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1.5rem; 
+            position: sticky;
+            top: 80px;
+        }
+        .card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .card h4 {
+            font-family: 'Spectral', serif;
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            color: var(--ink);
+        }
+        .card .t {
+            display: block;
+            padding: 0.6rem 0;
+            color: var(--ink);
+            border-bottom: 1px solid var(--line);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .card .t:last-child { border-bottom: none; }
+        .card .t:hover { color: var(--accent); padding-left: 4px; transition: padding 0.2s; }
+        
+        .contact {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .contact a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--card);
+            color: var(--ink);
+            transition: all 0.2s;
+        }
+        .contact a:hover { background: var(--accent); color: #fff; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--line);
+            margin-top: 2rem;
+            background: #fff;
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVE DESIGN (Max Width 850px)
+           ========================================= */
+        @media (max-width: 850px) {
+            .bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 0.75rem 1.25rem;
+            }
+            nav a {
+                font-size: 0.9rem;
+            }
+            .w {
+                padding: 1.5rem 1rem;
+            }
+            .cols {
+                grid-template-columns: 1fr; /* Stack sidebar below article */
+                gap: 2rem;
+            }
+            .article {
+                padding: 1.5rem 1.25rem; /* Reduce padding on mobile */
+            }
+            h1.serif {
+                font-size: 1.85rem; /* Smaller heading for mobile */
+            }
+            h2.serif {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
+            blockquote {
+                padding: 1rem 1.25rem;
+                font-size: 1rem;
+            }
+            aside {
+                position: static; /* Remove sticky on mobile */
+            }
+            .card {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Extra Small Devices (Phones < 400px) */
+        @media (max-width: 400px) {
+            h1.serif { font-size: 1.6rem; }
+            .brand { font-size: 1.1rem; }
+            nav { gap: 0.5rem 1rem; }
+            nav a { font-size: 0.85rem; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -30,7 +326,7 @@
         <section>
             <div class="w">
                 <a class="back" href="../index.html#/articles">← Back to all articles</a>
-                <div class="cols" style="margin-top:18px">
+                <div class="cols">
                     <article class="article">
                         <span class="tag">Catholicism · Sep 2026</span>
                         <h1 class="serif">Mary as the Mother of God: Biblical, Historical, and Theological Foundations</h1>
@@ -159,16 +455,13 @@
                         
                         <p>The Greek word <em>adelphoi</em> normally means brothers, but questions of kinship terminology, literary context, and ancient family structures have generated significant scholarly discussion. Historically, three distinct positions have been proposed:</p>
                         
-                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">The Helvidian View</h3>
-                        
+                        <h3 class="serif">The Helvidian View</h3>
                         <p>Named after the fourth-century writer Helvidius, this view holds that the "brothers" were biological children born to Mary and Joseph after Jesus. This is the interpretation most commonly held among Protestant traditions today, and it takes the term "brothers" in its most straightforward biological sense.</p>
                         
-                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">The Epiphanian View</h3>
-                        
+                        <h3 class="serif">The Epiphanian View</h3>
                         <p>Named after Epiphanius of Salamis, this view proposes that the "brothers" were Joseph's children from a previous marriage, making them Jesus's step-siblings rather than Mary's biological children. This view has some support in early apocryphal literature (such as the Protoevangelium of James) and remains common in Eastern Orthodox tradition.</p>
                         
-                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">The Hieronymian View</h3>
-                        
+                        <h3 class="serif">The Hieronymian View</h3>
                         <p>Named after Jerome, this view argues that "brothers" refers to cousins or more distant relatives, consistent with a broader semantic range for kinship terms in both Hebrew/Aramaic and the Greek used to translate them. This became the standard position in Western Catholic theology following Jerome's arguments in the fourth century.</p>
                         
                         <p>Each position has been defended by serious scholars, and each carries different implications for Mary's perpetual virginity — the Epiphanian and Hieronymian views preserve it, while the Helvidian view does not.</p>
@@ -333,13 +626,13 @@
                         
                         <p>Discussions of Marian doctrine sometimes proceed as though there are only two positions — Catholic affirmation and Protestant rejection. The reality is more layered, and Eastern Orthodox Christianity in particular occupies a distinct position that predates the Catholic-Protestant division entirely.</p>
                         
-                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">Eastern Orthodoxy</h3>
+                        <h3 class="serif">Eastern Orthodoxy</h3>
                         
                         <p>Orthodox Christianity fully affirms <em>Theotokos</em> — indeed, the Council of Ephesus took place in an undivided Church, and the title is treasured equally in Orthodox liturgy and hymnography. Orthodox tradition also affirms Mary's perpetual virginity and venerates her intercession extensively.</p>
                         
                         <p>However, Orthodox theology does not accept the Catholic dogma of the Immaculate Conception as formally defined in 1854, largely because Orthodox theology does not operate with the Western Augustinian framework of inherited guilt in the same way. Orthodoxy instead commemorates Mary's falling asleep as the Dormition of the Theotokos rather than using the specific Western term "Assumption," though the underlying belief that Mary was taken into heavenly glory is shared by both traditions.</p>
                         
-                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">Protestantism</h3>
+                        <h3 class="serif">Protestantism</h3>
                         
                         <p>Protestant tradition is far from uniform on this question. The magisterial Reformers themselves are frequently misunderstood here: Martin Luther continued to affirm the title "Mother of God" throughout his life, and John Calvin likewise accepted <em>Theotokos</em> as a legitimate and important Christological safeguard, even while both rejected Marian intercession, the Immaculate Conception, and the Assumption as unbiblical accretions.</p>
                         
@@ -347,54 +640,56 @@
                         
                         <h2 class="serif">A Comparison of Marian Doctrine Across Traditions</h2>
                         
-                        <table style="width:100%;border-collapse:collapse;margin:20px 0">
-                            <thead>
-                                <tr style="background:var(--ink);color:#F1EAD9">
-                                    <th style="padding:12px;text-align:left;border:1px solid var(--line)">Question</th>
-                                    <th style="padding:12px;text-align:left;border:1px solid var(--line)">Catholic</th>
-                                    <th style="padding:12px;text-align:left;border:1px solid var(--line)">Eastern Orthodox</th>
-                                    <th style="padding:12px;text-align:left;border:1px solid var(--line)">Protestant</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding:12px;border:1px solid var(--line)">Theotokos ("Mother of God")</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Affirmed</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Affirmed</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Historically affirmed by Luther and Calvin; mixed acceptance today</td>
-                                </tr>
-                                <tr style="background:var(--card)">
-                                    <td style="padding:12px;border:1px solid var(--line)">Perpetual Virginity</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Affirmed (Hieronymian view)</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Affirmed (Epiphanian view)</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Generally rejected (Helvidian view)</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:12px;border:1px solid var(--line)">Immaculate Conception</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Dogma (1854)</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Not accepted in this form</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Rejected</td>
-                                </tr>
-                                <tr style="background:var(--card)">
-                                    <td style="padding:12px;border:1px solid var(--line)">Assumption / Dormition</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Dogma (1950)</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Affirmed as Dormition</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Rejected</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:12px;border:1px solid var(--line)">Intercessory prayer to Mary</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Practiced (hyperdulia)</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Practiced extensively</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Rejected</td>
-                                </tr>
-                                <tr style="background:var(--card)">
-                                    <td style="padding:12px;border:1px solid var(--line)">Basis for doctrine</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Scripture + Tradition + Magisterium</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Scripture + Holy Tradition</td>
-                                    <td style="padding:12px;border:1px solid var(--line)">Scripture alone (sola scriptura)</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="responsive-table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Question</th>
+                                        <th>Catholic</th>
+                                        <th>Eastern Orthodox</th>
+                                        <th>Protestant</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Theotokos ("Mother of God")</td>
+                                        <td>Affirmed</td>
+                                        <td>Affirmed</td>
+                                        <td>Historically affirmed by Luther and Calvin; mixed acceptance today</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Perpetual Virginity</td>
+                                        <td>Affirmed (Hieronymian view)</td>
+                                        <td>Affirmed (Epiphanian view)</td>
+                                        <td>Generally rejected (Helvidian view)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Immaculate Conception</td>
+                                        <td>Dogma (1854)</td>
+                                        <td>Not accepted in this form</td>
+                                        <td>Rejected</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Assumption / Dormition</td>
+                                        <td>Dogma (1950)</td>
+                                        <td>Affirmed as Dormition</td>
+                                        <td>Rejected</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Intercessory prayer to Mary</td>
+                                        <td>Practiced (hyperdulia)</td>
+                                        <td>Practiced extensively</td>
+                                        <td>Rejected</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Basis for doctrine</td>
+                                        <td>Scripture + Tradition + Magisterium</td>
+                                        <td>Scripture + Holy Tradition</td>
+                                        <td>Scripture alone (sola scriptura)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         
                         <h2 class="serif">Mary's "Yes" to God</h2>
                         
@@ -493,18 +788,22 @@
                         
                         <h2 class="serif">Sources and Further Reading</h2>
                         
-                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">Primary Sources</h3>
+                        <h3 class="serif">Primary Sources</h3>
                         
-                        <p><a href="https://www.vatican.va/content/catechism/en/part_one/section_two/chapter_two/artcile_3/paragraph_2_conceived_by_the_power_of_the_holy_spirit_and_born_of_the_virgin_mary.html" target="_blank" rel="noopener">Catechism of the Catholic Church — The Virgin Mary</a><br>
-                        <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html" target="_blank" rel="noopener">Second Vatican Council — Lumen Gentium</a><br>
-                        <a href="https://www.newadvent.org/fathers/3810.htm" target="_blank" rel="noopener">Council of Ephesus — A.D. 431</a><br>
-                        <a href="https://sourcebooks.web.fordham.edu/basis/ephesus.asp" target="_blank" rel="noopener">Fordham University — Council of Ephesus Sourcebook</a></p>
+                        <p>
+                            <a href="https://www.vatican.va/content/catechism/en/part_one/section_two/chapter_two/artcile_3/paragraph_2_conceived_by_the_power_of_the_holy_spirit_and_born_of_the_virgin_mary.html" target="_blank" rel="noopener">Catechism of the Catholic Church — The Virgin Mary</a><br>
+                            <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html" target="_blank" rel="noopener">Second Vatican Council — Lumen Gentium</a><br>
+                            <a href="https://www.newadvent.org/fathers/3810.htm" target="_blank" rel="noopener">Council of Ephesus — A.D. 431</a><br>
+                            <a href="https://sourcebooks.web.fordham.edu/basis/ephesus.asp" target="_blank" rel="noopener">Fordham University — Council of Ephesus Sourcebook</a>
+                        </p>
                         
-                        <h3 class="serif" style="font-size:20px;margin:20px 0 10px">Further Reading</h3>
+                        <h3 class="serif">Further Reading</h3>
                         
-                        <p><a href="https://books.google.com/books/about/The_Birth_of_the_Messiah.html?id=Wt7YAAAAMAAJ" target="_blank" rel="noopener">Raymond E. Brown — The Birth of the Messiah</a><br>
-                        <a href="https://books.google.com/books/about/Mary_in_the_New_Testament.html?id=ML1mnUBwmhcC" target="_blank" rel="noopener">Mary in the New Testament</a><br>
-                        <a href="https://books.google.com/books/about/Mary_Through_the_Centuries.html?id=hAoGxq1x_hMC" target="_blank" rel="noopener">Jaroslav Pelikan — Mary Through the Centuries</a></p>
+                        <p>
+                            <a href="https://books.google.com/books/about/The_Birth_of_the_Messiah.html?id=Wt7YAAAAMAAJ" target="_blank" rel="noopener">Raymond E. Brown — The Birth of the Messiah</a><br>
+                            <a href="https://books.google.com/books/about/Mary_in_the_New_Testament.html?id=ML1mnUBwmhcC" target="_blank" rel="noopener">Mary in the New Testament</a><br>
+                            <a href="https://books.google.com/books/about/Mary_Through_the_Centuries.html?id=hAoGxq1x_hMC" target="_blank" rel="noopener">Jaroslav Pelikan — Mary Through the Centuries</a>
+                        </p>
                         
                         <p style="margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px">
                             <strong>Author:</strong> Anthony William<br>
@@ -523,13 +822,13 @@
                             <h4>Contact</h4>
                             <div class="contact">
                                 <a href="https://wa.me/255703338311" target="_blank" rel="noopener" aria-label="WhatsApp">
-                                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M3 21l1.6-4.9A9 9 0 1 1 8 19.6L3 21Z"/>
                                         <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-.8.8c-1-.4-1.8-1.2-2.2-2.2l.8-.8-1-2L9 9.5Z"/>
                                     </svg>
                                 </a>
                                 <a href="mailto:anthonywilliam8311@gmail.com" aria-label="Email">
-                                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="5" width="18" height="14" rx="2"/>
                                         <path d="m3 7 9 6 9-6"/>
                                     </svg>
