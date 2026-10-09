@@ -19,7 +19,6 @@ window.LT = {
   // Categories. Each id must match a folder name inside /articles.
   // Making a new folder inside /articles also creates a category automatically.
   categories: [
-    {"id": "theology", "name": "Theology", "description": "Biblical theology, doctrine, Christology, Mariology, ecclesiology, and the Christian faith.", "icon": "✝"},
     {"id": "islamic-dilemma", "name": "Islamic Dilemma", "description": "Questions about Islam, the Qur'an, Hadith, Islamic history, and Christian-Muslim apologetics.", "icon": "☪"},
     {"id": "apologetics", "name": "Apologetics", "description": "Historical, philosophical, biblical, and evidential defenses of Christianity.", "icon": "⚖"},
     {"id": "church-fathers", "name": "Church Fathers", "description": "Early Christian writers, apostolic tradition, councils, and patristic theology.", "icon": "☦"}
