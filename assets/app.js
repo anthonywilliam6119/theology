@@ -8,6 +8,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var titleize = function (s) { return s.replace(/[-_]+/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); }); };
+  var norm = function (s) { return String(s).trim().toLowerCase().replace(/[\s_]+/g, '-'); };
   var gcd = function (a, b) { return b ? gcd(b, a % b) : a; };
 
   function fmt(d, long) {
@@ -26,15 +27,20 @@
     mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
     copy: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>',
     share: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.6M8.2 13.2l7.6 4.6"/></svg>',
+    down: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
+    up: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>',
     left: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>',
     right: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>',
     wa: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.7 11.7 0 0 0 12.17 0C5.67 0 .38 5.28.38 11.78c0 2.08.54 4.1 1.57 5.88L.28 24l6.49-1.7a11.78 11.78 0 0 0 5.39 1.3h.01c6.5 0 11.79-5.29 11.79-11.79 0-3.14-1.22-6.1-3.46-8.31ZM12.18 21.6h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.85 1.01 1.03-3.75-.23-.39a9.82 9.82 0 1 1 8.42 4.71Zm5.39-7.36c-.29-.15-1.71-.84-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.76.94-.93 1.13-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.87.12.57-.09 1.71-.7 1.95-1.37.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.56-.34Z"/></svg>'
   };
-  var GMAIL = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(C.email || '') + '&su=' + encodeURIComponent((C.siteName || 'Website') + ' enquiry');
+  var MAIL_SUBJECT = (C.siteName || 'Website') + ' enquiry';
+  var MAIL_BODY = 'Hello ' + (C.author || '') + ',\n\n';
+  var MAILTO = 'mailto:' + (C.email || '') + '?subject=' + encodeURIComponent(MAIL_SUBJECT) + '&body=' + encodeURIComponent(MAIL_BODY);
+  var GMAIL = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(C.email || '') + '&su=' + encodeURIComponent(MAIL_SUBJECT) + '&body=' + encodeURIComponent(MAIL_BODY);
   function contactIcons(small) {
     return '<div class="contact-icons' + (small ? ' sm' : '') + '">' +
       '<a class="wa" data-tip="WhatsApp" href="https://wa.me/' + esc(C.whatsapp || '') + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + I.wa + '</a>' +
-      '<a class="em" data-tip="Email" href="' + GMAIL + '" target="_blank" rel="noopener" aria-label="Email">' + I.mail + '</a></div>';
+      '<a class="em" data-tip="Email" href="' + MAILTO + '" aria-label="Email">' + I.mail + '</a></div>';
   }
 
   /* ---------- markdown ---------- */
@@ -87,7 +93,7 @@
   function plain(s) { return s.replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[*_`#>]/g, '').replace(/\s+/g, ' ').trim(); }
 
   function parse(text, path) {
-    var parts = path.split('/'), cat = parts[1], file = parts[2].replace(/\.md$/i, '');
+    var parts = path.split('/'), cat = norm(parts[1]), file = parts[2].replace(/\.md$/i, '');
     var fm = {}, body = text.replace(/^\uFEFF/, ''), m = /^---[ \t]*\n([\s\S]*?)\n---[ \t]*(\n|$)/.exec(body);
     if (m) {
       m[1].split('\n').forEach(function (ln) {
@@ -109,7 +115,13 @@
 
   /* ---------- loading articles from the GitHub repository ---------- */
   var S = { arts: [], cats: [], loaded: false, failed: false };
-  var cats0 = C.categories || [];
+  // Categories you type in config.js (shown in this order, even before they have articles)
+  var manual = (C.categories || []).map(function (c) {
+    c = typeof c === 'string' ? { name: c } : c;
+    var id = norm(c.folder || c.name || '');
+    return { id: id, name: c.name || titleize(id), description: c.description || '' };
+  }).filter(function (c) { return c.id; });
+  var info = {}; manual.forEach(function (c) { info[c.id] = c; });
 
   function repo() {
     if (C.owner && C.repo) return { o: C.owner, r: C.repo };
@@ -122,7 +134,7 @@
   }
   function pickMd(list) {
     return list.filter(function (p) {
-      return /^articles\/[^\/]+\/[^\/]+\.md$/i.test(p) && !/\/readme\.md$/i.test(p) && !/\/[._][^\/]*$/.test(p);
+      return /^articles?\/[^\/]+\/[^\/]+\.md$/i.test(p) && !/\/readme\.md$/i.test(p) && !/\/[._][^\/]*$/.test(p);
     });
   }
   function listPaths() {
@@ -131,7 +143,7 @@
       .then(function (j) { return pickMd(j.tree.filter(function (t) { return t.type === 'blob'; }).map(function (t) { return t.path; })); }) : Promise.reject();
     return api.catch(function () {
       return fetch('articles.json').then(function (r) { if (!r.ok) throw 0; return r.json(); })
-        .then(function (a) { return pickMd(a.map(function (p) { return /^articles\//.test(p) ? p : 'articles/' + p; })); });
+        .then(function (a) { return pickMd(a.map(function (p) { return /^articles?\//i.test(p) ? p : 'articles/' + p; })); });
     });
   }
   function getText(path) {
@@ -145,10 +157,15 @@
     return a.sort(function (x, y) { return (y.date || '').localeCompare(x.date || '') || x.title.localeCompare(y.title); });
   }
   function mergeCats() {
-    S.cats = cats0.slice();
+    var map = {}, own = [], found = [];
+    manual.forEach(function (m) { if (!map[m.id]) { map[m.id] = { id: m.id, name: m.name, description: m.description, count: 0 }; own.push(m.id); } });
     S.arts.forEach(function (a) {
-      if (!S.cats.some(function (c) { return c.id === a.cat; })) S.cats.push({ id: a.cat, name: titleize(a.cat), description: '', icon: '✦' });
+      a.cat = norm(a.cat);
+      if (!map[a.cat]) { map[a.cat] = { id: a.cat, name: titleize(a.cat), description: '', count: 0 }; found.push(a.cat); }
+      map[a.cat].count++;
     });
+    found.sort(function (x, y) { return map[y].count - map[x].count || map[x].name.localeCompare(map[y].name); });
+    S.cats = own.concat(found).map(function (id) { return map[id]; });
   }
   function finish() { S.loaded = true; mergeCats(); chrome(); route(true); }
   function load() {
@@ -164,8 +181,22 @@
     }).catch(function () { S.failed = true; finish(); });
   }
 
+  /* ---------- toast + clipboard ---------- */
+  function toast(m) {
+    var t = document.querySelector('.toast');
+    if (!t) { t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = m; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove('show'); }, 2200);
+  }
+  function copy(text, msg) {
+    function fb() { var x = document.createElement('textarea'); x.value = text; x.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(x); x.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) { } x.remove(); toast(ok ? msg : 'Copy is not available here'); }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { toast(msg); }, fb); else fb();
+  }
+
   /* ---------- helpers ---------- */
-  function catOf(id) { return S.cats.filter(function (c) { return c.id === id; })[0] || { id: id, name: titleize(id), description: '' }; }
+  function catOf(id) { var inf = info[id] || {}; return S.cats.filter(function (c) { return c.id === id; })[0] || { id: id, name: inf.name || titleize(id), description: inf.description || '', count: 0 }; }
+  function chips(cur) {
+    return S.cats.length ? '<div class="chips">' + S.cats.map(function (c) { return '<a class="chip' + (c.id === cur ? ' on' : '') + '" href="#/cat/' + esc(c.id) + '">' + esc(c.name) + (c.count ? '<small>' + c.count + '</small>' : '') + '</a>'; }).join('') + '</div>' : '';
+  }
   function href(a) { return '#/a/' + encodeURIComponent(a.cat) + '/' + encodeURIComponent(a.slug); }
   function card(a) {
     return '<article class="card"><a class="pill" href="#/cat/' + esc(a.cat) + '">' + esc(catOf(a.cat).name) + '</a><h3><a href="' + href(a) + '">' + esc(a.title) + '</a></h3><p>' + esc(a.excerpt) + '</p>' +
@@ -195,18 +226,18 @@
 
   /* ---------- header & footer ---------- */
   function chrome() {
-    var nav = '<a href="#/">Home</a><a href="#/articles">Articles</a>' + S.cats.map(function (c) { return '<a href="#/cat/' + esc(c.id) + '">' + esc(c.name) + '</a>'; }).join('');
+    var MAXN = 4, nav = '<a href="#/">Home</a><a href="#/articles">Articles</a>' + S.cats.map(function (c, i) { return '<a' + (i >= MAXN ? ' class="extra"' : '') + ' href="#/cat/' + esc(c.id) + '">' + esc(c.name) + '</a>'; }).join('') + (S.cats.length > MAXN ? '<a class="more-link" href="#/articles">More</a>' : '');
     hdr.innerHTML = '<div class="wrap nav"><a class="brand" href="#/"><span class="brand-mark">✝</span><span class="brand-text">Logos <span>&amp;</span> Truth</span></a>' +
       '<nav class="nav-links" id="nl" aria-label="Main">' + nav + '</nav><div class="nav-actions">' +
       '<button class="icon-btn" id="st" aria-label="Search articles" aria-expanded="false" title="Search">' + I.search + '</button>' +
       '<button class="icon-btn" id="tb" aria-label="Toggle light or dark theme" title="Toggle theme">' + I.moon + I.sun + '</button>' +
-      '<a class="icon-btn" href="' + GMAIL + '" target="_blank" rel="noopener" aria-label="Email" title="Email">' + I.mail + '</a>' +
+      '<a class="icon-btn" href="' + MAILTO + '" aria-label="Email" title="Email">' + I.mail + '</a>' +
       '<button class="icon-btn menu-btn" id="mb" aria-label="Menu" aria-expanded="false">' + I.menu + '</button></div></div>' +
       '<div class="hsearch" id="hs" hidden><div class="wrap"><div class="search"><span class="ico">' + I.search + '</span><input id="hi" type="search" placeholder="Search articles..." autocomplete="off" aria-label="Search articles"><div id="ho" class="results" aria-live="polite"></div></div></div></div>';
     ftr.innerHTML = '<div class="wrap"><div class="foot-grid">' +
       '<div><a class="brand" href="#/"><span class="brand-mark">✝</span><span class="brand-text">Logos <span>&amp;</span> Truth</span></a><p>Rigorous study for thoughtful belief — theology, apologetics, and history, prepared for real questions.</p></div>' +
       '<div><h4>Explore</h4><ul><li><a href="#/">Home</a></li><li><a href="#/articles">All articles</a></li><li><a href="#/search">Search</a></li></ul></div>' +
-      '<div><h4>Categories</h4><ul>' + S.cats.map(function (c) { return '<li><a href="#/cat/' + esc(c.id) + '">' + esc(c.name) + '</a></li>'; }).join('') + '</ul></div>' +
+      '<div><h4>Categories</h4><ul>' + (S.cats.length ? S.cats.map(function (c) { return '<li><a href="#/cat/' + esc(c.id) + '">' + esc(c.name) + '</a></li>'; }).join('') : '<li>Coming soon</li>') + '</ul></div>' +
       '<div><h4>About the Author</h4><div class="author-box"><strong>' + esc(C.author || '') + '</strong><p>Owner and author of ' + esc(C.siteName || '') + ', bringing together biblical theology, historical evidence, and Christian-Muslim apologetics.</p><p><a class="more" href="#/about">Read more about the author →</a></p>' + contactIcons(true) + '</div></div>' +
       '</div><div class="foot-bottom"><span>© ' + new Date().getFullYear() + ' ' + esc(C.siteName || '') + '. All rights reserved.</span><span>Resources for thoughtful Christians</span></div></div>';
     $('tb').onclick = function () {
@@ -263,13 +294,13 @@
   function articlesPage() {
     setTitle('Articles');
     app.innerHTML = hero('Library', 'Articles', 'Browse theology, apologetics, Islamic dilemmas, Church Fathers, and more.') +
-      '<section class="section"><div class="wrap"><div class="sec-head"><div><h2>All articles</h2><p>The newest articles appear first.</p></div></div><div class="card-grid">' + listHTML(S.arts) + '</div></div></section>';
+      '<section class="section"><div class="wrap">' + chips('') + '<div class="sec-head"><div><h2>All articles</h2><p>The newest articles appear first.</p></div></div><div class="card-grid">' + listHTML(S.arts) + '</div></div></section>';
   }
   function catPage(id) {
-    var c = catOf(id); setTitle(c.name);
+    id = norm(id); var c = catOf(id); setTitle(c.name);
     var list = S.arts.filter(function (a) { return a.cat === id; });
     app.innerHTML = hero('Category', esc(c.name), esc(c.description || '')) +
-      '<section class="section"><div class="wrap"><div class="card-grid">' + listHTML(list, S.arts.length ? note('No articles in this category yet', 'Please check back soon, or <a href="#/articles">browse all articles</a>.') : null) + '</div></div></section>';
+      '<section class="section"><div class="wrap">' + chips(id) + '<div class="card-grid">' + listHTML(list, S.arts.length ? note('No articles in this category yet', 'Please check back soon, or <a href="#/articles">browse all articles</a>.') : null) + '</div></div></section>';
   }
   function aboutPage() {
     setTitle('About the Author');
@@ -290,17 +321,51 @@
       '<button class="rt-btn" data-act="copy" title="Copy article text" aria-label="Copy article">' + I.copy + '<span>Copy</span></button>' +
       '<div class="rt-share"><button class="rt-btn" data-act="share" aria-expanded="false" aria-haspopup="true" title="Share this article" aria-label="Share">' + I.share + '<span>Share</span></button>' +
       '<div class="share-menu" id="shareMenu" hidden><button data-act="native" hidden>Share via device…</button>' +
-      '<a data-net="wa" target="_blank" rel="noopener">WhatsApp</a><a data-net="tg" target="_blank" rel="noopener">Telegram</a><a data-net="fb" target="_blank" rel="noopener">Facebook</a><a data-net="x" target="_blank" rel="noopener">X (Twitter)</a><a data-net="mail" target="_blank" rel="noopener">Email</a><button data-act="copylink">Copy link</button></div></div>' +
+      '<a data-net="wa" target="_blank" rel="noopener">WhatsApp</a><a data-net="tg" target="_blank" rel="noopener">Telegram</a><a data-net="fb" target="_blank" rel="noopener">Facebook</a><a data-net="x" target="_blank" rel="noopener">X (Twitter)</a><a data-net="mail" target="_blank" rel="noopener">Email (Gmail)</a><a data-net="mailto">Email (mail app)</a><button data-act="copylink">Copy link</button></div></div>' +
       '<span class="rt-sep" aria-hidden="true"></span>' +
       '<button class="rt-btn" data-act="smaller" title="Minimize text" aria-label="Minimize text"><b class="aa">A<small>−</small></b><span>Minimize</span></button>' +
       '<button class="rt-btn" data-act="larger" title="Maximize text" aria-label="Maximize text"><b class="aa">A<small>+</small></b><span>Maximize</span></button>' +
       '<span class="rt-size" id="rtSize" aria-live="polite">100%</span></div></div>';
   }
+  function relatedList(a) {
+    var same = S.arts.filter(function (x) { return x.path !== a.path && x.cat === a.cat; }), rest = S.arts.filter(function (x) { return x.path !== a.path; }), seen = {}, out = [];
+    same.concat(rest).forEach(function (x) { if (!seen[x.path] && out.length < 3) { seen[x.path] = 1; out.push(x); } });
+    return out;
+  }
+  /* slim bar fixed to the bottom of the screen while reading */
+  function relatedBar(a) {
+    var items = '<a class="chip on" href="#/cat/' + esc(a.cat) + '">' + esc(catOf(a.cat).name) + '</a>' +
+      relatedList(a).map(function (x) { return '<a class="chip art" href="' + href(x) + '" title="' + esc(x.title) + '">' + esc(x.title) + '</a>'; }).join('') +
+      S.cats.filter(function (c) { return c.id !== a.cat; }).slice(0, 5).map(function (c) { return '<a class="chip" href="#/cat/' + esc(c.id) + '">' + esc(c.name) + '</a>'; }).join('') +
+      '<a class="chip" href="#/articles">All articles →</a>';
+    return '<div class="rbar" id="rbar" role="complementary" aria-label="Related topics"><div class="rbar-in"><span class="rbar-label">Related topics</span><div class="rbar-scroll">' + items + '</div>' +
+      '<button class="rbar-x" id="rbarX" aria-label="Hide related topics bar" title="Hide">' + I.down + '</button></div></div>' +
+      '<button class="rbar-tab" id="rbarTab" aria-label="Show related topics" hidden>Related topics ' + I.up + '</button>';
+  }
+  var rbObs = null;
+  function initRBar() {
+    var bar = $('rbar'), tab = $('rbarTab'), rel = document.querySelector('.related'); if (!bar) return;
+    var min = false, atEnd = false;
+    try { min = sessionStorage.getItem('lt:rb') === '1'; } catch (e) { }
+    function paint() { bar.classList.toggle('off', min || atEnd); tab.hidden = !(min && !atEnd); document.body.classList.toggle('has-rbar', !(min || atEnd)); }
+    $('rbarX').onclick = function () { min = true; try { sessionStorage.setItem('lt:rb', '1'); } catch (e) { } paint(); };
+    tab.onclick = function () { min = false; try { sessionStorage.removeItem('lt:rb'); } catch (e) { } paint(); };
+    if ('IntersectionObserver' in window) {
+      var vis = { rel: false, ftr: false }, ft = $('ftr');   /* hide the bar once the end-of-article section or the footer is on screen */
+      rbObs = new IntersectionObserver(function (en) {
+        en.forEach(function (e) { vis[e.target === rel ? 'rel' : 'ftr'] = e.isIntersecting; });
+        atEnd = vis.rel || vis.ftr; paint();
+      });
+      if (rel) rbObs.observe(rel);
+      if (ft) rbObs.observe(ft);
+    }
+    paint();
+  }
   function related(a) {
     var same = S.arts.filter(function (x) { return x.path !== a.path && x.cat === a.cat; }), rest = S.arts.filter(function (x) { return x.path !== a.path; }), seen = {}, out = [];
     same.concat(rest).forEach(function (x) { if (!seen[x.path] && out.length < 3) { seen[x.path] = 1; out.push(x); } });
-    if (!out.length) return '';
-    return '<section class="section alt related" aria-labelledby="relatedTitle"><div class="wrap"><div class="sec-head"><div><h2 id="relatedTitle">Related topics</h2><p>Continue your study with more articles.</p></div><a class="link" href="#/articles">All articles →</a></div><div class="card-grid">' + out.map(card).join('') + '</div></div></section>';
+    return '<section class="section alt related" aria-labelledby="relatedTitle"><div class="wrap"><div class="sec-head"><div><h2 id="relatedTitle">Related topics</h2><p>Continue your study with more articles and topics.</p></div><a class="link" href="#/articles">All articles →</a></div>' + chips(a.cat) +
+      '<div class="card-grid">' + (out.length ? out.map(card).join('') : note('More related articles are coming soon', 'Please check back shortly, or <a href="#/articles">browse all articles</a>.')) + '</div></div></section>';
   }
   function articlePage(cat, slug) {
     var a = S.arts.filter(function (x) { return x.cat === cat && x.slug === slug; })[0];
@@ -312,8 +377,8 @@
     setTitle(a.title);
     app.innerHTML = '<article><header class="article-head"><a class="pill" href="#/cat/' + esc(a.cat) + '">' + esc(catOf(a.cat).name) + '</a><h1>' + esc(a.title) + '</h1><div class="meta">By ' + esc(a.author) + (a.date ? ' · ' + fmt(a.date, true) : '') + '</div></header>' +
       readerTools() + '<div class="article-body">' + a.html + '</div>' +
-      '<div class="article-contact"><h3>Have a question about this article?</h3><p>Reach out directly.</p>' + contactIcons(false) + '</div></article>' + related(a);
-    initReader(a);
+      '<div class="article-contact"><h3>Have a question about this article?</h3><p>Reach out directly.</p>' + contactIcons(false) + '</div></article>' + related(a) + relatedBar(a);
+    initReader(a); initRBar();
   }
 
   /* ---------- reading tools: copy, share, text size ---------- */
@@ -328,15 +393,6 @@
       try { localStorage.setItem('readStep', i); } catch (e) { }
       bar.querySelector('[data-act=smaller]').disabled = i === 0; bar.querySelector('[data-act=larger]').disabled = i === steps.length - 1;
     }
-    function toast(m) {
-      var t = document.querySelector('.toast');
-      if (!t) { t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
-      t.textContent = m; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove('show'); }, 2200);
-    }
-    function copy(text, msg) {
-      function fb() { var x = document.createElement('textarea'); x.value = text; x.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(x); x.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) { } x.remove(); toast(ok ? msg : 'Copy is not available here'); }
-      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { toast(msg); }, fb); else fb();
-    }
     function enc(x) { return encodeURIComponent(x); }
     function setLinks() {
       var u = location.href, q = function (n) { return menu.querySelector('[data-net=' + n + ']'); };
@@ -345,6 +401,7 @@
       q('fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + enc(u);
       q('x').href = 'https://twitter.com/intent/tweet?text=' + enc(title) + '&url=' + enc(u);
       q('mail').href = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + enc(title) + '&body=' + enc(title + '\n' + u);
+      q('mailto').href = 'mailto:?subject=' + enc(title) + '&body=' + enc(title + '\n' + u);
     }
     function toggle(o) { menu.hidden = !o; shareBtn.setAttribute('aria-expanded', o); if (o) setLinks(); }
     if (navigator.share) menu.querySelector('[data-act=native]').hidden = false;
@@ -369,9 +426,15 @@
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); var b = $('sb'); if (b) b.focus(); else { var h = $('hs'); if (h) { h.hidden = false; $('hi').focus(); } } }
   });
 
+  /* ---------- email: the icon is a plain mailto: link, so one click opens the visitor's mail app/inbox ---------- */
+  /* Email works exactly like the WhatsApp icon: a plain link that opens the visitor's mail app with a new message ready. */
+  function closeMail() {}
+
   /* ---------- router ---------- */
   function route(keepScroll) {
-    clearInterval(vTimer);
+    clearInterval(vTimer); closeMail();
+    if (rbObs) { rbObs.disconnect(); rbObs = null; }
+    document.body.classList.remove('has-rbar');
     var hsp = $('hs'); if (hsp) hsp.hidden = true;
     var h = location.hash.replace(/^#\/?/, '').split('/'), r = h[0], d = function (x) { try { return decodeURIComponent(x || ''); } catch (e) { return x || ''; } };
     if (r === 'articles') articlesPage();
