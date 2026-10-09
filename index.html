@@ -1,0 +1,47 @@
+---
+layout: default
+title: Home
+---
+{% assign all = site.pages | where: "article", true | sort: "date" | reverse %}
+{% assign top = all.first %}
+<section class="hero">
+  <div class="wrap hero-grid{% unless top %} solo{% endunless %}">
+    <div>
+      <div class="eyebrow">Theology · Apologetics · Scholarly</div>
+      <h1>Theology that thinks.<br><em>Faith that defends.</em></h1>
+      <p class="lead">Rigorous study for thoughtful belief. Explore Scripture, theology, philosophy, history, and apologetics—rooted in the Christian faith and prepared for real questions.</p>
+      <div class="search">
+        <label for="searchBox" class="sr-only">Search articles</label><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+        <input id="searchBox" type="search" placeholder="Search articles..." autocomplete="off"><kbd>⌘ K</kbd>
+        <div id="searchResults" class="results" aria-live="polite"></div>
+      </div>
+    </div>
+    {% if top %}
+    {% include cat.html path=top.path %}
+    <aside class="featured">
+      <div class="tag">Featured · {{ cat_name }}</div>
+      <h3>{{ top.title }}</h3>
+      <p>{{ top.excerpt }}</p>
+      <a class="more" href="{{ top.url | relative_url }}">Read article →</a>
+    </aside>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Latest articles</h2><p>New research, biblical studies, and apologetic discussions.</p></div><a class="link" href="{{ '/articles/' | relative_url }}">All articles →</a></div>
+    <div class="card-grid">
+      {% for a in all limit:6 %}{% include article-card.html a=a %}{% else %}<div class="empty-note"><h3>Articles are coming soon</h3><p>New articles will appear here. Please check back shortly.</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include verse.html %}
+
+<section class="section">
+  <div class="wrap"><div class="contact-bar">
+    <div><div class="eyebrow">Get in touch</div><h2>Have a question or topic to discuss?</h2><p>Reach Anthony William directly.</p></div>
+    {% include contact-icons.html %}
+  </div></div>
+</section>

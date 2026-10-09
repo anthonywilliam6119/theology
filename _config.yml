@@ -1,0 +1,24 @@
+title: "Logos & Truth"
+description: "Theology, apologetics, biblical studies, and Islamic dilemmas."
+url: ""
+# Repository named USERNAME.github.io  ->  keep baseurl empty.
+# Any other repository name           ->  set baseurl: "/your-repo-name"
+baseurl: ""
+lang: "en"
+markdown: kramdown
+permalink: pretty
+
+collections:
+  categories:
+    output: true
+    permalink: /articles/:name/
+
+defaults:
+  - scope: { path: "", type: "pages" }
+    values: { layout: "default" }
+  - scope: { path: "articles", type: "pages" }
+    values: { layout: "article", article: true }
+  - scope: { path: "", type: "categories" }
+    values: { layout: "category" }
+
+exclude: [README.md, Gemfile, Gemfile.lock, vendor, node_modules]
