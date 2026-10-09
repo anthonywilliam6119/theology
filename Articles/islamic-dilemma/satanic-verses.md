@@ -1,7 +1,8 @@
-title: The Satanic Verses and the Protection of Christ
-date: 2026-10-04
-excerpt: What Islamic sources say about Satan's interference with the prophets, and why the unique protection of Jesus and Mary raises a question about who Christ is.
-
+---
+ title: The Satanic Verses and the Protection of Christ
+  date: 2026-10-04
+  excerpt: What Islamic sources say about Satan's interference with the prophets, and why the unique protection of Jesus and Mary raises     a question about who Christ is.
+---
 Few teachings about prophethood in Islamic tradition have caused as much theological difficulty as the story of the "Satanic Verses," which many classical commentators connect to [Quran 22:52](https://quran.com/22/52). According to that reading, Satan interfered with what Muhammad recited, and God then cancelled what Satan had cast.
 
 At first this may sound confusing. How can a true prophet of God be affected by Satan? Does it mean Muslims believe their prophet was evil? It does not. Muslims do not believe Muhammad served Satan. The question is a narrower one: what do Islam's own sources say about Satan's access to the prophets, and what do they say about Jesus?
