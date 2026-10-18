@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-top wrap">
+    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark">✝<i>⌁</i></span><span><b>Bible &amp; Truth</b><small>THEOLOGY • APOLOGETICS • EVIDENCE</small></span></a>
+    <form id="header-search-form" class="header-search" role="search"><input id="header-search" type="search" placeholder="Search theology, Islam, Church Fathers..." aria-label="Search articles"><button type="submit" class="search-toggle" aria-label="Open search" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></form>
+    <button class="mobile-menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+  <nav class="main-nav wrap" aria-label="Main navigation">
+    <a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/latest-articles/' | relative_url }}">Latest Articles</a>
+    <a href="{{ '/theology/' | relative_url }}">Theology⌄</a><a href="{{ '/islamic-dilemma/' | relative_url }}">Islamic Dilemma⌄</a><a href="{{ '/church-fathers/' | relative_url }}">Church Fathers⌄</a><a href="{{ '/about/' | relative_url }}">About</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+{{ content }}
+<footer class="site-footer" id="footer">
+  <div class="wrap footer-grid">
+    <div><a class="brand footer-brand" href="{{ '/' | relative_url }}"><span class="brand-mark">✝<i>⌁</i></span><span><b>Bible &amp; Truth</b><small>THEOLOGY • APOLOGETICS • EVIDENCE</small></span></a><p>Equipping believers with truth, defending the faith, and answering today’s biggest questions.</p></div>
+    <div><h4>Quick Links</h4><a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/latest-articles/' | relative_url }}">Latest Articles</a><a href="{{ '/theology/' | relative_url }}">Theology</a><a href="{{ '/islamic-dilemma/' | relative_url }}">Islamic Dilemma</a><a href="{{ '/church-fathers/' | relative_url }}">Church Fathers</a><a href="{{ '/about/' | relative_url }}">About</a></div>
+    <div><h4>Categories</h4><a href="{{ '/theology/' | relative_url }}">Theology</a><a href="{{ '/islamic-dilemma/' | relative_url }}">Islamic Dilemma</a><a href="{{ '/church-fathers/' | relative_url }}">Church Fathers</a><a href="{{ '/theology/' | relative_url }}">Bible &amp; Scripture</a><a href="{{ '/theology/' | relative_url }}">Christian Living</a></div>
+    <div><h4>Follow / Contact</h4><div class="footer-social"><a href="https://wa.me/255703338311" aria-label="WhatsApp" title="WhatsApp">◉</a><a href="mailto:anthonywilliam8311@gmail.com" aria-label="Email" title="Email">M</a></div><hr><small>© 2026 Bible &amp; Truth. All rights reserved.<br>Built for the glory of God.</small></div>
+  </div>
+</footer>
+{% include search-index.html %}
+
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body></html>
