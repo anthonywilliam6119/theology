@@ -1,44 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+{% include head.html %}
 </head>
 <body class="reading-page">
-<header class="site-header">
-  <div class="header-top wrap">
-    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark">✝<i>⌁</i></span><span><b>Bible &amp; Truth</b><small>THEOLOGY • APOLOGETICS • EVIDENCE</small></span></a>
-    <form id="header-search-form" class="header-search" role="search"><input id="header-search" type="search" placeholder="Search theology, Islam, Church Fathers..." aria-label="Search articles"><button type="submit" class="search-toggle" aria-label="Open search" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></form>
-    <button class="mobile-menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-  </div>
-  <nav class="main-nav wrap" aria-label="Main navigation">
-    <a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/latest-articles/' | relative_url }}">Latest Articles</a>
-    <a href="{{ '/theology/' | relative_url }}">Theology⌄</a><a href="{{ '/islamic-dilemma/' | relative_url }}">Islamic Dilemma⌄</a><a href="{{ '/church-fathers/' | relative_url }}">Church Fathers⌄</a><a href="{{ '/about/' | relative_url }}">About</a><a href="#contact">Contact</a>
-  </nav>
-</header>
+{% include header.html %}
 
+{% assign words = content | strip_html | number_of_words %}
+{% assign minutes = words | divided_by: 200 | plus: 1 %}
 <section class="article-hero">
   <div class="article-hero-shade"></div>
   <div class="wrap article-hero-content">
     <div class="breadcrumbs"><a href="{{ '/' | relative_url }}">Home</a> › <a href="{{ '/' | relative_url }}{{ page.categories | first }}/">{{ page.categories | first | replace: '-', ' ' | capitalize }}</a> › {{ page.title }}</div>
     <p class="eyebrow">{{ page.categories | first | replace: '-', ' ' | upcase }}</p>
     <h1>{{ page.title }}</h1>
-    <p class="article-subtitle">{{ page.subtitle | default: "A biblical foundation, historical context, scholarly discussion, and thoughtful answers to common questions." }}</p>
+    {% assign subtitle = page.subtitle | default: page.description %}{% if subtitle %}<p class="article-subtitle">{{ subtitle }}</p>{% endif %}
   </div>
 </section>
 
 <main class="wrap reading-grid">
   <article class="article-reading">
     <div class="article-toolbar">
-      <span>▣ &nbsp; {{ page.date | date: "%B %-d, %Y" }}</span>
-      <span>♟ &nbsp; {{ page.author | default: "Anthony William" }}</span>
-      <span>◷ &nbsp; {{ page.reading_time | default: "12 min read" }}</span>
-      <div class="share-tools"><span>Share:</span><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}" aria-label="Share on Facebook">f</a><a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}" aria-label="Share on X">𝕏</a><button type="button" class="copy-link" aria-label="Copy article link" title="Copy article link">↗</button></div>
+      <span>{% include icon.html name="calendar" %}{{ page.date | date: "%B %-d, %Y" }}</span>
+      <span>{% include icon.html name="user" %}{{ page.author | default: "Anthony William" }}</span>
+      <span>{% include icon.html name="clock" %}{% if page.reading_time %}{{ page.reading_time }}{% else %}{{ minutes }} min read{% endif %}</span>
+      <div class="share-tools"><span>Share:</span><a href="https://www.facebook.com/sharer/sharer.php" data-share="facebook" aria-label="Share on Facebook">f</a><a href="https://twitter.com/intent/tweet" data-share="x" aria-label="Share on X">𝕏</a><button type="button" class="copy-link" aria-label="Copy article link" title="Copy article link">↗</button></div>
     </div>
-    {% if page.image %}<img class="article-feature-image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">{% endif %}
+    {% if page.image %}<img class="article-feature-image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">{% endif %}
     <div class="article-prose">{{ content }}</div>
     <div class="article-end-note">“Blessed are those who hear the word of God and keep it.” <span>— Luke 11:28</span></div>
   </article>
@@ -46,35 +34,20 @@
   <aside class="sidebar article-sidebar">
     <section class="side-box"><h3>Search Articles</h3><form id="search-form" class="search-form"><input id="article-search" type="search" placeholder="Search all articles..." aria-label="Search articles"><button aria-label="Search">⌕</button></form><div id="search-results" class="search-results"></div></section>
     <section class="side-box"><h3>Categories</h3>
-      <a class="category-link" href="{{ '/theology/' | relative_url }}"><span>▤</span>Theology <small>Explore →</small></a>
-      <a class="category-link" href="{{ '/islamic-dilemma/' | relative_url }}"><span>☾</span>Islamic Dilemma <small>Explore →</small></a>
-      <a class="category-link" href="{{ '/church-fathers/' | relative_url }}"><span>♙</span>Church Fathers <small>Explore →</small></a>
-      <a class="category-link" href="{{ '/theology/' | relative_url }}"><span>✝</span>Bible &amp; Scripture <small>Explore →</small></a>
-      <a class="category-link" href="{{ '/theology/' | relative_url }}"><span>♜</span>History &amp; Apologetics <small>Explore →</small></a>
+      <a class="category-link" href="{{ '/theology/' | relative_url }}"><span>{% include icon.html name="book" %}</span>Theology <small>Explore →</small></a>
+      <a class="category-link" href="{{ '/islamic-dilemma/' | relative_url }}"><span>{% include icon.html name="moon" %}</span>Islamic Dilemma <small>Explore →</small></a>
+      <a class="category-link" href="{{ '/church-fathers/' | relative_url }}"><span>{% include icon.html name="columns" %}</span>Church Fathers <small>Explore →</small></a>
     </section>
-    <section class="side-box"><h3>Related Articles</h3>
-      {% for post in site.articles limit:3 %}<a class="related-link" href="{{ post.url | relative_url }}"><span class="related-thumb">✝</span><span>{{ post.title }}<small>{{ post.date | date: "%b %-d, %Y" }}</small></span></a>{% endfor %}
-    </section>
-    <section class="side-box"><h3>Quick Links</h3><a class="quick-link" href="{{ '/latest-articles/' | relative_url }}">▣ &nbsp; Latest Articles</a><a class="quick-link" href="{{ '/about/' | relative_url }}">● &nbsp; About the Author</a><a class="quick-link" href="#contact">◉ &nbsp; Contact</a></section>
+    {% assign others = site.articles | where_exp: "p", "p.url != page.url" | sort: "date" | reverse %}
+    {% if others.size > 0 %}<section class="side-box"><h3>Related Articles</h3>
+      {% for post in others limit: 3 %}<a class="related-link" href="{{ post.url | relative_url }}"><span class="related-thumb">✝</span><span>{{ post.title }}<small>{{ post.date | date: "%b %-d, %Y" }}</small></span></a>{% endfor %}
+    </section>{% endif %}
+    <section class="side-box"><h3>Quick Links</h3><a class="quick-link" href="{{ '/latest-articles/' | relative_url }}">{% include icon.html name="doc" %}Latest Articles</a><a class="quick-link" href="{{ '/about/' | relative_url }}">{% include icon.html name="user" %}About the Author</a><a class="quick-link" href="#contact">{% include icon.html name="mail" %}Contact</a></section>
     <blockquote class="side-quote">“Your word is a lamp for my feet, a light on my path.”<small>Psalm 119:105</small></blockquote>
   </aside>
 </main>
 
-<footer class="site-footer" id="contact">
-  <div class="wrap footer-grid">
-    <div><a class="brand footer-brand" href="{{ '/' | relative_url }}"><span class="brand-mark">✝<i>⌁</i></span><span><b>Bible &amp; Truth</b><small>THEOLOGY • APOLOGETICS • EVIDENCE</small></span></a><p>Equipping believers with truth, defending the faith, and answering today’s biggest questions.</p></div>
-    <div><h4>Quick Links</h4><a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/latest-articles/' | relative_url }}">Latest Articles</a><a href="{{ '/theology/' | relative_url }}">Theology</a><a href="{{ '/islamic-dilemma/' | relative_url }}">Islamic Dilemma</a><a href="{{ '/church-fathers/' | relative_url }}">Church Fathers</a><a href="{{ '/about/' | relative_url }}">About</a></div>
-    <div><h4>Categories</h4><a href="{{ '/theology/' | relative_url }}">Theology</a><a href="{{ '/islamic-dilemma/' | relative_url }}">Islamic Dilemma</a><a href="{{ '/church-fathers/' | relative_url }}">Church Fathers</a><a href="{{ '/theology/' | relative_url }}">Bible &amp; Scripture</a><a href="{{ '/theology/' | relative_url }}">History &amp; Apologetics</a></div>
-    <div><h4>Contact</h4><div class="footer-social"><a href="https://wa.me/255703338311" aria-label="WhatsApp" title="WhatsApp">◉</a><a href="mailto:anthonywilliam8311@gmail.com" aria-label="Email" title="Email">M</a></div><hr><small>© 2026 Bible &amp; Truth. All rights reserved.<br>Built for the glory of God.</small></div>
-  </div>
-</footer>
+{% include footer.html %}
 {% include search-index.html %}
-
 <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-<script>
-document.querySelector('.copy-link')?.addEventListener('click', async function(){
-  try { await navigator.clipboard.writeText(window.location.href); this.textContent='✓'; }
-  catch(e) { window.prompt('Copy this article link:', window.location.href); }
-});
-</script>
 </body></html>

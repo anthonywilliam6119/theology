@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<main class="wrap page-content">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.intro }}</p>
+  {% assign items = site.articles | where: "categories", page.category | sort: "date" | reverse %}
+  {% if items.size > 0 %}
+  <div class="article-grid">{% for post in items %}{% include article-card.html post=post %}{% endfor %}</div>
+  {% else %}
+  <p class="empty-note">No articles in this category yet. Please check back soon.</p>
+  {% endif %}
+</main>
