@@ -1,0 +1,22 @@
+title: Bible & Truth
+description: Theology, apologetics, Scripture, and historic Christianity.
+url: ""
+baseurl: ""
+markdown: kramdown
+permalink: /:categories/:title/
+plugins: []
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+collections:
+  articles:
+    output: true
+    permalink: /articles/:path/
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article

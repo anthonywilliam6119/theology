@@ -1,0 +1,6 @@
+---
+layout: default
+title: Latest Articles
+permalink: /latest-articles/
+---
+<main class="wrap page-content"><h1>Latest Articles</h1><p>Explore articles on Scripture, Christian doctrine, Church history, and apologetics.</p><ul>{% for post in site.articles %}<li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> — {{ post.date | date: "%b %-d, %Y" }}</li>{% endfor %}</ul></main>
