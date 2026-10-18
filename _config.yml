@@ -1,19 +1,22 @@
-title: Bible & Truth
-description: Theology, apologetics, Scripture, and historic Christianity.
+title: "Bible & Truth"
+description: "Theology, apologetics, Scripture, and historic Christianity."
 url: ""
 baseurl: ""
 markdown: kramdown
-permalink: /:categories/:title/
 plugins: []
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
 
+# Articles live in the _articles/ folder (one sub-folder per category).
+# Jekyll requires the leading underscore for a collection folder; the
+# published address is still /articles/<category>/<article-name>/.
 collections:
   articles:
     output: true
     permalink: /articles/:path/
+
 defaults:
   - scope:
       path: ""
