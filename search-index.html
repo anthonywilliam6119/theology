@@ -1,0 +1,16 @@
+<script type="application/json" id="article-search-index">[
+{% for item in site.articles %}
+  {
+    "type": "article",
+    "title": {{ item.title | jsonify }},
+    "url": {{ item.url | relative_url | jsonify }},
+    "date": {{ item.date | date: "%Y-%m-%d" | jsonify }},
+    "category": {{ item.categories | first | default: "article" | jsonify }},
+    "excerpt": {{ item.content | split: '</h1>' | last | strip_html | normalize_whitespace | truncate: 180 | jsonify }},
+    "content": {{ item.content | split: '</h1>' | last | strip_html | normalize_whitespace | truncate: 3000 | jsonify }}
+  },
+{% endfor %}
+  {"type":"topic","title":"Theology","url":{{ '/theology/' | relative_url | jsonify }},"category":"theology","excerpt":"Christian doctrine, biblical interpretation and the truth of the Gospel.","content":"theology doctrine bible scripture biblical interpretation exegesis jesus trinity gospel"},
+  {"type":"topic","title":"Islamic Dilemma","url":{{ '/islamic-dilemma/' | relative_url | jsonify }},"category":"islamic-dilemma","excerpt":"Examining Islam's claims with Scripture, history and reason.","content":"islam islamic apologetics quran hadith muslim dilemma jesus isa"},
+  {"type":"topic","title":"Church Fathers","url":{{ '/church-fathers/' | relative_url | jsonify }},"category":"church-fathers","excerpt":"Teachings and witness of the early Church.","content":"church fathers patristic early church augustine athanasius ignatius irenaeus tertullian"}
+]</script>
