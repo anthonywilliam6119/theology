@@ -1,0 +1,7 @@
+{% assign post = include.post %}{% assign blurb = post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 150 %}
+<article class="article-card">
+  <a class="article-image" href="{{ post.url | relative_url }}" aria-label="Read: {{ post.title | escape }}"{% if post.image %} style="background-image:url('{{ post.image | replace: 'w=1200', 'w=700' }}')"{% endif %}></a>
+  <span class="tag">{{ post.categories | first | replace: '-', ' ' | upcase }}</span><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  <p>{{ blurb }}</p>
+  <div class="meta">{% include icon.html name="calendar" %}{{ post.date | date: "%b %-d, %Y" }} &nbsp; • &nbsp; {{ post.author | default: "Anthony William" }}</div><a class="read-more" href="{{ post.url | relative_url }}">Read More&nbsp; →</a>
+</article>

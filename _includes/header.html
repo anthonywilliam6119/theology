@@ -1,0 +1,12 @@
+{% assign cat = page.categories | first %}{% if page.category %}{% assign cat = page.category %}{% endif %}
+<header class="site-header">
+  <div class="header-top wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">{% include logo.html %}<span><b>Bible &amp; Truth</b><small>THEOLOGY • APOLOGETICS • EVIDENCE</small></span></a>
+    <form id="header-search-form" class="header-search" role="search"><input id="header-search" type="search" placeholder="Search theology, Islam, Church Fathers..." aria-label="Search articles"><button type="submit" class="search-toggle" aria-label="Open search" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></form>
+    <button class="mobile-menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+  <nav class="main-nav wrap" aria-label="Main navigation">
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a><a href="{{ '/latest-articles/' | relative_url }}"{% if page.url == '/latest-articles/' %} aria-current="page"{% endif %}>Latest Articles</a>
+    <a href="{{ '/theology/' | relative_url }}"{% if cat == 'theology' %} aria-current="page"{% endif %}>Theology⌄</a><a href="{{ '/islamic-dilemma/' | relative_url }}"{% if cat == 'islamic-dilemma' %} aria-current="page"{% endif %}>Islamic Dilemma⌄</a><a href="{{ '/church-fathers/' | relative_url }}"{% if cat == 'church-fathers' %} aria-current="page"{% endif %}>Church Fathers⌄</a><a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a><a href="#contact">Contact</a>
+  </nav>
+</header>

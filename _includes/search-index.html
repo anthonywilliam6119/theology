@@ -6,8 +6,8 @@
     "url": {{ item.url | relative_url | jsonify }},
     "date": {{ item.date | date: "%Y-%m-%d" | jsonify }},
     "category": {{ item.categories | first | default: "article" | jsonify }},
-    "excerpt": {{ item.content | split: '</h1>' | last | strip_html | normalize_whitespace | truncate: 180 | jsonify }},
-    "content": {{ item.content | split: '</h1>' | last | strip_html | normalize_whitespace | truncate: 3000 | jsonify }}
+    "excerpt": {{ item.description | default: item.content | strip_html | normalize_whitespace | truncate: 180 | jsonify }},
+    "content": {{ item.content | strip_html | normalize_whitespace | truncate: 3000 | jsonify }}
   },
 {% endfor %}
   {"type":"topic","title":"Theology","url":{{ '/theology/' | relative_url | jsonify }},"category":"theology","excerpt":"Christian doctrine, biblical interpretation and the truth of the Gospel.","content":"theology doctrine bible scripture biblical interpretation exegesis jesus trinity gospel"},
